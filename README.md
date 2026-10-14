@@ -19,7 +19,7 @@
 
 **Windows**
 - Windows 10／11（64 位元）
-- [Python](https://www.python.org/downloads/) 3.9 以上（安裝時勾選「Add python.exe to PATH」）
+- [Python](https://www.python.org/downloads/windows/) 3.9～3.14，建議 3.13（安裝時勾選「Add python.exe to PATH」）。最新的 3.15 太新，需要的套件還沒有支援；啟動檔找不到合適的版本時，會詢問是否用 winget 自動加裝 Python 3.13
 - 系統內建的「微軟正黑體」
 
 **macOS**（在 Apple 晶片、macOS 26 上測試）

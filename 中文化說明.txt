@@ -14,7 +14,8 @@ DCGO 繁體中文化 — 遊戲版本 1.19.0，含自動更新（Windows／macOS
 - 不要使用官方啟動器（DCGO_Launcher.exe.請勿使用）。它會把中文化的檔案「修復」成英文原版。
 
 ■ 在 Windows 上使用
-1. 先安裝 Python 3.9 以上（https://www.python.org/downloads/ ，安裝時勾選「Add python.exe to PATH」）。
+1. 先安裝 Python 3.13（https://www.python.org/downloads/windows/ ，安裝時勾選「Add python.exe to PATH」）。
+   不要用最新的 3.15（太新，需要的套件還沒有支援）。沒有裝也沒關係，啟動檔會詢問是否自動安裝 3.13。
 2. 取得工具：從 GitHub 下載公開儲存庫 rich61016/DCGO-zh-TW（git clone 或下載 ZIP 後解壓縮）。
 3. 雙擊「啟動DCGO（自動更新）.bat」。第一次會建立 Python 環境、從官方伺服器下載完整遊戲（約 700 MB）、
    用 Windows 內建的「微軟正黑體」產生中文版，然後直接開啟遊戲（Windows 不需要 Cyder）。

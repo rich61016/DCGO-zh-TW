@@ -326,8 +326,24 @@ def launch():
         say("找不到 Cyder.app,請用平常的方式開啟 Game/DCGO.exe。")
 
 
+def unitypy_ok():
+    try:
+        import UnityPy  # noqa: F401
+        return True
+    except Exception:
+        return False
+
+
 def main():
     args = sys.argv[1:]
+    if not ("--check" in args or "--english" in args) and not unitypy_ok():
+        # 沒有 UnityPy 就無法重建中文化:先停下來,不下載、不改動遊戲檔案
+        say(f"✗ 這個 Python({sys.version.split()[0]})沒有安裝 UnityPy,無法套用中文化。遊戲檔案沒有被更動。")
+        say("  請用「啟動DCGO（自動更新）」重新建立環境(需要 Python 3.9～3.14),或手動執行:")
+        say(f"    \"{PY}\" -m pip install UnityPy==1.25.4")
+        if "--launch" in args:
+            launch()
+        return 3
     st = load_state()
     if "--english" in args:
         if game_running():
