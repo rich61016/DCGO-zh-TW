@@ -7,13 +7,13 @@
      中文化會改動的 6 個檔案,比對的是 _zh_tools/pristine/ 裡保存的「官方原檔」。
   3. 套用:一般檔案直接替換(舊檔先備份到 _zh_tools/backup/);中文化相關的官方原檔放進 pristine/。
   4. 重新套用中文化(build_zh.py),再用 verify_build.py 獨立驗證;驗證失敗就改放官方原檔(英文但可正常遊玩)。
-  5. (--launch)用 Cyder 啟動遊戲。
+  5. (--launch)啟動遊戲:macOS 用 Cyder;Windows 直接執行 Game\\DCGO.exe。
 
 用法:
   python zh_update.py              檢查並更新到最新版,然後重新套用中文化
   python zh_update.py --check      只檢查有沒有新版本,不下載
   python zh_update.py --localize   不檢查更新,只重新套用中文化(例如翻譯表更新後)
-  python zh_update.py --launch     完成後用 Cyder 啟動遊戲(啟動 DCGO.command 用的就是這個)
+  python zh_update.py --launch     完成後啟動遊戲(「啟動DCGO（自動更新）」.command / .bat 用的就是這個)
   python zh_update.py --version X  指定要同步到的版本(預設:伺服器上的最新版)
   python zh_update.py --english    緊急用:改放官方原檔(英文版),不改其他東西
 """
@@ -38,6 +38,7 @@ DOWNLOADS = os.path.join(TOOLS, "downloads")
 BACKUP = os.path.join(TOOLS, "backup")
 STATE = os.path.join(TOOLS, "zh_state.json")
 PY = sys.executable
+IS_WIN = os.name == "nt"
 
 # 中文化會改寫的檔案(相對於 Game/)。其餘檔案必須與官方逐位元組相同。
 LOCALIZED = [
@@ -66,24 +67,66 @@ def sha1b64(path):
     return base64.b64encode(h.digest()).decode().rstrip("=")
 
 
+def P(base, rel):
+    """官方清單的路徑用 / 分隔,轉成本機路徑。"""
+    return os.path.join(base, *rel.split("/"))
+
+
+CURL = shutil.which("curl")
+
+
 def curl_json(url):
-    out = subprocess.run(["curl", "-fsSL", "--retry", "3", "--retry-delay", "2", "--max-time", "60", url],
+    if not CURL:
+        import urllib.request
+        try:
+            with urllib.request.urlopen(url, timeout=60) as r:
+                return json.loads(r.read().decode("utf-8-sig"))
+        except Exception as ex:
+            raise RuntimeError(f"無法連線到更新伺服器:{url}({ex})")
+    out = subprocess.run([CURL, "-fsSL", "--retry", "3", "--retry-delay", "2", "--max-time", "60", url],
                          capture_output=True)
     if out.returncode != 0:
         raise RuntimeError(f"無法連線到更新伺服器:{url}(curl 代碼 {out.returncode})")
     return json.loads(out.stdout.decode("utf-8-sig"))
 
 
+def urllib_file(url, part, size):
+    """沒有 curl 時的下載(支援續傳)。"""
+    import urllib.request
+    have = os.path.getsize(part) if os.path.exists(part) else 0
+    req = urllib.request.Request(url, headers={"Range": f"bytes={have}-"} if have else {})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        mode = "ab" if have and r.status == 206 else "wb"
+        done = have if mode == "ab" else 0
+        with open(part, mode) as f:
+            while True:
+                chunk = r.read(1 << 20)
+                if not chunk:
+                    break
+                f.write(chunk)
+                done += len(chunk)
+                print(f"\r    {done / 1e6:7.1f} / {size / 1e6:.1f} MB", end="", flush=True)
+    print()
+
+
 def curl_file(url, dest, size):
     os.makedirs(os.path.dirname(dest), exist_ok=True)
     part = dest + ".part"
     for attempt in range(1, 4):
-        r = subprocess.run(["curl", "-fL", "--retry", "3", "--retry-delay", "2", "-C", "-", "--progress-bar",
-                            "-o", part, url])
-        if r.returncode == 0 and os.path.exists(part) and os.path.getsize(part) == size:
+        if not CURL:
+            try:
+                urllib_file(url, part, size)
+                rc = 0
+            except Exception as ex:
+                say(f"    {ex}")
+                rc = 1
+        else:
+            rc = subprocess.run([CURL, "-fL", "--retry", "3", "--retry-delay", "2", "-C", "-", "--progress-bar",
+                                 "-o", part, url]).returncode
+        if rc == 0 and os.path.exists(part) and os.path.getsize(part) == size:
             os.replace(part, dest)
             return
-        if r.returncode == 33 or (os.path.exists(part) and os.path.getsize(part) > size):   # 續傳失敗或檔案過大:重新下載
+        if rc == 33 or (os.path.exists(part) and os.path.getsize(part) > size):   # 續傳失敗或檔案過大:重新下載
             try:
                 os.remove(part)
             except FileNotFoundError:
@@ -107,6 +150,11 @@ def save_state(st):
 
 
 def game_running():
+    if IS_WIN:
+        # tasklist 的訊息會依系統語言輸出(中文版是 Big5),只解讀 ASCII 的程式名稱欄位
+        r = subprocess.run(["tasklist", "/FI", "IMAGENAME eq DCGO.exe", "/FO", "CSV", "/NH"], capture_output=True)
+        out = r.stdout.decode("ascii", "replace")
+        return [l for l in out.splitlines() if l.lower().startswith('"dcgo.exe"')]
     r = subprocess.run(["pgrep", "-f", os.path.join(GAME, "DCGO.exe")], capture_output=True, text=True)
     return [p for p in r.stdout.split() if p.strip()]
 
@@ -125,10 +173,7 @@ def plan_sync(version):
     need = []
     for e in bd["Entries"]:
         rel = e["RelativePath"]
-        if rel in LOCALIZED:
-            p = os.path.join(PRISTINE, rel)
-        else:
-            p = os.path.join(GAME, rel)
+        p = P(PRISTINE, rel) if rel in LOCALIZED else P(GAME, rel)
         ok = os.path.exists(p) and os.path.getsize(p) == e["Size"] and sha1b64(p) == e["Hash"]
         if not ok:
             need.append(e)
@@ -141,7 +186,7 @@ def download(version, need):
     base = os.path.join(DOWNLOADS, version)
     for i, e in enumerate(need, 1):
         rel = e["RelativePath"]
-        dest = os.path.join(base, rel)
+        dest = P(base, rel)
         if os.path.exists(dest) and os.path.getsize(dest) == e["Size"] and sha1b64(dest) == e["Hash"]:
             say(f"  [{i}/{len(need)}] {rel}(已下載過,略過)")
             continue
@@ -159,16 +204,16 @@ def apply_files(version, need, base, old_version):
     bdir = os.path.join(BACKUP, old_version or "unknown")
     for e in need:
         rel = e["RelativePath"]
-        src = os.path.join(base, rel)
+        src = P(base, rel)
         if rel in LOCALIZED:
-            dst = os.path.join(PRISTINE, rel)
+            dst = P(PRISTINE, rel)
             os.makedirs(os.path.dirname(dst), exist_ok=True)
             os.replace(src, dst)
             continue
-        dst = os.path.join(GAME, rel)
+        dst = P(GAME, rel)
         os.makedirs(os.path.dirname(dst), exist_ok=True)
         if os.path.exists(dst):
-            b = os.path.join(bdir, rel)
+            b = P(bdir, rel)
             os.makedirs(os.path.dirname(b), exist_ok=True)
             shutil.copy2(dst, b)
         os.replace(src, dst)
@@ -189,7 +234,7 @@ def literal_set(path):
 
 def report_new_strings(old_meta, version):
     """比較新舊官方 metadata,把新版本新增、且尚未翻譯的字串寫到 new_strings_<版本>.json(請 Claude 補翻時使用)。"""
-    new_meta = os.path.join(PRISTINE, "DCGO_Data/il2cpp_data/Metadata/global-metadata.dat")
+    new_meta = P(PRISTINE, "DCGO_Data/il2cpp_data/Metadata/global-metadata.dat")
     if not (old_meta and os.path.exists(old_meta) and os.path.exists(new_meta)):
         return
     sys.path.insert(0, TOOLS)
@@ -215,9 +260,9 @@ def prune_backups(keep):
 def install_pristine_into_game():
     """把官方原檔放回遊戲資料夾(英文,但與官方版本一致、可正常遊玩)。"""
     for rel in LOCALIZED:
-        src = os.path.join(PRISTINE, rel)
+        src = P(PRISTINE, rel)
         if os.path.exists(src):
-            dst = os.path.join(GAME, rel)
+            dst = P(GAME, rel)
             os.makedirs(os.path.dirname(dst), exist_ok=True)
             tmp = dst + ".tmp-zh"
             shutil.copyfile(src, tmp)
@@ -226,8 +271,8 @@ def install_pristine_into_game():
 
 def sync_emergency_original():
     """遊戲資料夾裡的 global-metadata.dat.原版 是給使用者緊急還原用的,必須與目前版本的官方原檔一致。"""
-    src = os.path.join(PRISTINE, "DCGO_Data/il2cpp_data/Metadata/global-metadata.dat")
-    dst = os.path.join(GAME, "DCGO_Data/il2cpp_data/Metadata/global-metadata.dat.原版")
+    src = P(PRISTINE, "DCGO_Data/il2cpp_data/Metadata/global-metadata.dat")
+    dst = P(GAME, "DCGO_Data/il2cpp_data/Metadata/global-metadata.dat.原版")
     if os.path.exists(src):
         os.makedirs(os.path.dirname(dst), exist_ok=True)
         tmp = dst + ".tmp-zh"
@@ -264,8 +309,14 @@ def launch():
     if game_running():
         say("遊戲已經在執行中。")
         return
-    sh, eng = find_cyder()
     exe = os.path.join(GAME, "DCGO.exe")
+    if IS_WIN:
+        # Windows:遊戲本來就是 Windows 程式,直接執行(與這個視窗分離,關掉視窗不影響遊戲)
+        subprocess.Popen([exe], cwd=GAME, close_fds=True,
+                         creationflags=getattr(subprocess, "DETACHED_PROCESS", 0x8) | getattr(subprocess, "CREATE_NEW_PROCESS_GROUP", 0x200))
+        say("已啟動遊戲。")
+        return
+    sh, eng = find_cyder()
     if sh:
         log = os.path.join(TOOLS, "cyder-launch.log")
         subprocess.Popen(["/bin/bash", sh, "--engine-src", eng, "--launch-exe", exe],
@@ -315,7 +366,7 @@ def main():
     if "--check" in args:
         return 0
     bd, need = plan_sync(target)
-    pristine_ok = all(os.path.exists(os.path.join(PRISTINE, rel)) for rel in LOCALIZED)
+    pristine_ok = all(os.path.exists(P(PRISTINE, rel)) for rel in LOCALIZED)
     if not need and cur == target and st.get("localized_ok") and pristine_ok:
         say("已經是最新版本,不需要更新。")
         if "--launch" in args:
@@ -328,7 +379,7 @@ def main():
     if need:
         base = download(target, need)
         say("\n下載完成,全部檔案的雜湊都正確。開始套用…")
-        pm = os.path.join(PRISTINE, "DCGO_Data/il2cpp_data/Metadata/global-metadata.dat")
+        pm = P(PRISTINE, "DCGO_Data/il2cpp_data/Metadata/global-metadata.dat")
         if os.path.exists(pm):
             old_meta = pm + ".prev"
             shutil.copyfile(pm, old_meta)

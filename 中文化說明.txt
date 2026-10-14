@@ -1,4 +1,4 @@
-DCGO 繁體中文化（副本）— 遊戲版本 1.19.0，含自動更新
+DCGO 繁體中文化 — 遊戲版本 1.19.0，含自動更新（Windows／macOS）
 
 所有修改都只在這個資料夾裡。
 
@@ -12,6 +12,17 @@ DCGO 繁體中文化（副本）— 遊戲版本 1.19.0，含自動更新
   第一次雙擊如果 macOS 問要不要開啟，選「打開」即可（會開一個「終端機」視窗顯示進度）。
 - 也可以照舊用 Cyder 直接開啟 Game\DCGO.exe，只是這樣不會檢查更新。
 - 不要使用官方啟動器（DCGO_Launcher.exe.請勿使用）。它會把中文化的檔案「修復」成英文原版。
+
+■ 在 Windows 上使用
+1. 先安裝 Python 3.9 以上（https://www.python.org/downloads/ ，安裝時勾選「Add python.exe to PATH」）。
+2. 取得工具：從 GitHub 下載公開儲存庫 rich61016/DCGO-zh-TW（git clone 或下載 ZIP 後解壓縮）。
+3. 雙擊「啟動DCGO（自動更新）.bat」。第一次會建立 Python 環境、從官方伺服器下載完整遊戲（約 700 MB）、
+   用 Windows 內建的「微軟正黑體」產生中文版，然後直接開啟遊戲（Windows 不需要 Cyder）。
+4. 若出現「Windows 已保護您的電腦」，按「其他資訊」→「仍要執行」。
+5. 若遊戲打不開、提示缺少 VCRUNTIME140.dll，請安裝 Microsoft「Visual C++ 可轉散發套件（x64）」。
+6. 想用自己的簡中卡圖與牌組：從私人備份儲存庫下載卡圖壓縮檔，把 Assets 資料夾放進遊戲資料夾。
+注意：不要把 Mac 上做好的中文版遊戲檔直接複製到 Windows 使用（裡面是蘋方字型，授權只限 Apple 裝置）；
+在 Windows 上用 .bat 重新產生即可。Windows 版尚未在實際的 Windows 電腦上測試過，有問題請把視窗訊息告訴我。
 
 ■ 自動更新的細節
 - 中文化會改動 6 個遊戲檔案；這 6 個檔案的官方原檔保存在 _zh_tools\pristine，每次更新都用它重新產生中文版。
@@ -48,7 +59,8 @@ DCGO 繁體中文化（副本）— 遊戲版本 1.19.0，含自動更新
 以及規則判斷結果在英文版與中文版是否一致。
 
 ■ 字型
-繁體字使用從這台 Mac 的系統字型 PingFang TC（蘋方-繁）抽出的字型，只供你在自己電腦上使用，請不要散布這份副本。
+繁體字使用你電腦內建的系統字型：macOS 用蘋方-繁（PingFang TC），Windows 用微軟正黑體。
+建置時才從本機抽出內嵌到遊戲檔，只供自己使用，請不要散布做好的中文版遊戲檔。
 
 ■ 如果遊戲打不開或閃退
 1. 在 Game\DCGO_Data\il2cpp_data\Metadata\ 裡，把 global-metadata.dat 改名備用，

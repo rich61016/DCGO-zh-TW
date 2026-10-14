@@ -3,6 +3,7 @@
 import glob
 import os
 import struct
+import sys
 
 import UnityPy
 
@@ -93,16 +94,88 @@ def pingfang_path():
     return sorted(cands, key=os.path.getmtime)[-1]
 
 
-def pingfang_tc_regular():
-    """從系統 PingFang.ttc 抽出「PingFang TC Regular」字型面(依字型名稱尋找,不依賴順序)。"""
-    import ttc_extract as TX
+# ---------------------------------------------------------------- 中文字型(跨平台)
+# 一律使用「使用者自己電腦上的系統字型」,在建置時抽出內嵌,不隨工具散布:
+#   macOS   → 蘋方-繁 PingFang TC Regular
+#   Windows → 微軟正黑體 Microsoft JhengHei Regular
+# 也可用環境變數 ZH_FONT 指定其他字型檔(.ttf/.otf/.ttc),ZH_FONT_FACE 指定 .ttc 裡的字型家族名稱。
+REGULAR = {"Regular", "Normal", "Book", "標準", "常規", "Medium"}
+
+
+def name_records(fb):
+    """回傳 {nameID: set(所有語言的名稱)}(ttf_util.font_names 只取第一筆,這裡全取)。"""
     import ttf_util as T
-    path = pingfang_path()
+    t = T._tables(fb)
+    out = {}
+    if "name" not in t:
+        return out
+    off, _ = t["name"]
+    fmt, count, str_off = struct.unpack_from(">HHH", fb, off)
+    for i in range(count):
+        pid, eid, lid, nid, length, o = struct.unpack_from(">6H", fb, off + 6 + i * 12)
+        raw = fb[off + str_off + o: off + str_off + o + length]
+        try:
+            s = raw.decode("utf-16-be") if pid in (0, 3) else raw.decode("mac_roman")
+        except Exception:
+            continue
+        out.setdefault(nid, set()).add(s.strip())
+    return out
+
+
+def face_count(path):
     with open(path, "rb") as fh:
         head = fh.read(12)
-    n = struct.unpack_from(">I", head, 8)[0]
+    return struct.unpack_from(">I", head, 8)[0] if head[:4] == b"ttcf" else 1
+
+
+def pick_face(path, families, postscript=None):
+    """從字型檔(單一字型或 .ttc)挑出指定家族的 Regular 字型面,回傳獨立的字型位元組。"""
+    import ttc_extract as TX
+    with open(path, "rb") as fh:
+        is_ttc = fh.read(4) == b"ttcf"
+    n = face_count(path)
+    faces = []
     for i in range(n):
-        fb = TX.extract_face(path, i)
-        if T.font_names(fb).get(6) == "PingFangTC-Regular":
+        if is_ttc:
+            fb = TX.extract_face(path, i)
+        else:
+            with open(path, "rb") as fh:
+                fb = fh.read()
+        nm = name_records(fb)
+        faces.append((fb, nm))
+        if postscript and postscript in nm.get(6, set()):
             return fb
-    raise RuntimeError("PingFang.ttc 裡找不到 PingFangTC-Regular")
+    for fb, nm in faces:
+        if nm.get(1, set()) & set(families) and (nm.get(2, set()) & REGULAR or not nm.get(2)):
+            return fb
+    for fb, nm in faces:
+        if nm.get(1, set()) & set(families):
+            return fb
+    if n == 1 and not families:
+        return faces[0][0]
+    raise RuntimeError(f"{path} 裡找不到字型家族 {families}")
+
+
+def cjk_font():
+    """回傳 (字型位元組, 家族名稱)。"""
+    override = os.environ.get("ZH_FONT")
+    if override:
+        fam = os.environ.get("ZH_FONT_FACE")
+        fb = pick_face(override, [fam] if fam else [])
+        family = fam or sorted(name_records(fb).get(1, {"Custom"}))[0]
+        return fb, family
+    if sys.platform == "darwin":
+        return pick_face(pingfang_path(), ["PingFang TC"], postscript="PingFangTC-Regular"), "PingFang TC"
+    if os.name == "nt":
+        fonts = os.path.join(os.environ.get("WINDIR", r"C:\Windows"), "Fonts")
+        for fn in ("msjh.ttc", "msjh.ttf"):
+            p = os.path.join(fonts, fn)
+            if os.path.exists(p):
+                return pick_face(p, ["Microsoft JhengHei", "微軟正黑體"]), "Microsoft JhengHei"
+        raise FileNotFoundError("找不到微軟正黑體(C:\\Windows\\Fonts\\msjh.ttc)。可用環境變數 ZH_FONT 指定其他繁體中文字型檔。")
+    raise RuntimeError("不支援的作業系統;請用環境變數 ZH_FONT 指定繁體中文字型檔")
+
+
+def pingfang_tc_regular():
+    """(舊名稱,保留相容)"""
+    return pick_face(pingfang_path(), ["PingFang TC"], postscript="PingFangTC-Regular")

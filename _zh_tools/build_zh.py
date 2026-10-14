@@ -189,16 +189,16 @@ def special_sharedassets0(f, changed, externals):
     assert tt["m_Name"] == A.FONT_NAME and tt["m_FontSize"] == FONT_SIZE_FOR_METRICS
     # 真正的往返測試:不改欄位,以 save_typetree 的「回傳值」(而非 get_raw_data)與原始位元組比對
     assert fo.save_typetree(tt) == orig_raw, "Font 型別樹往返不一致,停止"
-    font_bytes = A.pingfang_tc_regular()                         # PingFang TC Regular(依名稱尋找)
+    font_bytes, family = A.cjk_font()                            # macOS:蘋方-繁;Windows:微軟正黑體(皆取自本機系統字型)
     asc, desc, lsp, _ = TX.hhea_metrics(font_bytes, FONT_SIZE_FOR_METRICS)
     tt["m_FontData"] = font_bytes
     tt["m_Ascent"], tt["m_Descent"], tt["m_LineSpacing"] = asc, desc, lsp
-    tt["m_FontNames"] = ["PingFang TC"]
+    tt["m_FontNames"] = [family]
     tt["m_KerningValues"] = []
     new_raw = fo.save_typetree(tt)                               # 回傳值才是新資料
-    assert new_raw != orig_raw and len(new_raw) > len(orig_raw) + 12_000_000, "Font 資料沒有真的改變"
+    assert new_raw != orig_raw and len(new_raw) > len(orig_raw) + 1_000_000, "Font 資料沒有真的改變"
     changed[CJK_FONT_PID] = new_raw
-    log("sharedassets0.assets", f"Font {A.FONT_NAME} 內容換成 PingFang TC({len(font_bytes):,} bytes)")
+    log("sharedassets0.assets", f"Font {A.FONT_NAME} 內容換成 {family}({len(font_bytes):,} bytes)")
 
 
 def special_resources(f, changed, externals):

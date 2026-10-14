@@ -7,10 +7,13 @@
 !/中文化說明.txt
 !/名詞對照表.txt
 !/啟動DCGO（自動更新）.command
+!/啟動DCGO（自動更新）.bat
+!/.gitattributes
 !/_zh_tools/
 
 # _zh_tools 裡不公開的部分
 /_zh_tools/.venv/
+/_zh_tools/.venv-win/
 /_zh_tools/pristine/
 /_zh_tools/backup/
 /_zh_tools/downloads/

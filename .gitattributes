@@ -1,0 +1,4 @@
+# Windows 批次檔必須是 CRLF 換行:原樣保存,不做換行轉換
+*.bat -text
+# macOS 啟動檔必須是 LF 換行
+*.command text eol=lf

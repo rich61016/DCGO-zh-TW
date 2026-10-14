@@ -153,10 +153,11 @@ raw0 = fo0.objects[fb_pid].get_raw_data()
 ok(raw[0x10c:0x118] == raw0[0x10c:0x118], "圖集貼圖參照不變")
 fnt = f0.objects[font_pid].read()
 fdata = bytes(fnt.m_FontData)
-names = T.font_names(fdata)
-ok(fdata[:4] == b"OTTO" and names.get(6) == "PingFangTC-Regular", f"{A.FONT_NAME} 內容 = PingFang TC Regular({len(fdata):,} bytes)")
+want_font, want_family = A.cjk_font()
+ok(fdata[:4] in (b"OTTO", b"\x00\x01\x00\x00", b"true") and fdata == want_font,
+   f"{A.FONT_NAME} 內容 = 本機系統字型 {want_family}({len(fdata):,} bytes)")
 asc, desc, lsp, _ = TX.hhea_metrics(fdata, 16.0)
-ok(list(fnt.m_FontNames) == ["PingFang TC"] and abs(fnt.m_Ascent - asc) < 0.01 and abs(fnt.m_Descent - desc) < 0.01,
+ok(list(fnt.m_FontNames) == [want_family] and abs(fnt.m_Ascent - asc) < 0.01 and abs(fnt.m_Descent - desc) < 0.01,
    f"字高 asc={fnt.m_Ascent:.2f} desc={fnt.m_Descent:.2f} line={fnt.m_LineSpacing:.2f}")
 ok(len(fnt.m_KerningValues) == 0, "舊字型的字距表已清空")
 other_fonts_same = all(f0.objects[p].get_raw_data() == fo0.objects[p].get_raw_data()
@@ -233,7 +234,7 @@ for k in present:
 ok(not bad_fmt, f"所有譯文可安全作為格式字串{(' ' + str(bad_fmt[:3])) if bad_fmt else ''}")
 
 # ---------------------------------------------------------------- 6. 字元涵蓋
-print("\n== 6. 譯文用到的字元是否都在 PingFang TC 裡 ==")
+print(f"\n== 6. 譯文用到的字元是否都在 {want_family} 裡 ==")
 allchars = set()
 for v in list(zh_tw.LOC.values()) + list(zh_tw.SCENE.values()) + [zh_all.ALL[k] for k in present]:
     allchars |= {c for c in v if ord(c) > 127 and not c.isspace() and not (0xE000 <= ord(c) <= 0xF8FF)}   # 私用區字元只拿來讓 Replace 比對失效,不會顯示
