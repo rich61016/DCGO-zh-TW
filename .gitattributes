@@ -2,3 +2,5 @@
 *.bat -text
 # macOS 啟動檔必須是 LF 換行
 *.command text eol=lf
+# 啟動檔顯示的中文訊息(Windows 用 type 顯示),原樣保存 CRLF
+_zh_tools/msg/*.txt -text

@@ -1,56 +1,92 @@
 @echo off
-chcp 65001 >nul
 setlocal EnableExtensions
-title DCGO 繁中化 自動更新
-rem 雙擊執行:檢查 DCGO 官方更新 -> 有新版就下載有變動的檔案並重新套用繁體中文化 -> 啟動遊戲
-rem 更新來源與官方啟動器相同 https://dcgo.online/PATCH ,每個檔案下載後都會驗證雜湊
-cd /d "%~dp0_zh_tools"
-if errorlevel 1 goto nodir
+chcp 65001 >nul
+title DCGO zh-TW - auto update
+rem Double-click: check the official DCGO update server, download changed files,
+rem re-apply the Traditional Chinese localization, then start the game.
+rem (Chinese messages are in _zh_tools\msg\*.txt so this file can stay plain ASCII.)
+set "TOOLS=%~dp0_zh_tools"
+set "MSG=%~dp0_zh_tools\msg"
+if not exist "%TOOLS%\zh_update.py" goto nodir
 set PYTHONUTF8=1
 set PYTHONIOENCODING=utf-8
-set "VPY=%~dp0_zh_tools\.venv-win\Scripts\python.exe"
+set "VPY=%TOOLS%\.venv-win\Scripts\python.exe"
 if exist "%VPY%" goto run
 
-echo 第一次使用：建立中文化工具需要的 Python 環境，會從 pypi.org 下載約 30 MB…
-set "PYCMD="
-where py >nul 2>nul
-if not errorlevel 1 set "PYCMD=py -3"
-if defined PYCMD goto mkvenv
-python -c "import sys; sys.exit(0 if sys.version_info[:2] >= (3, 9) else 1)" >nul 2>nul
-if not errorlevel 1 set "PYCMD=python"
-if defined PYCMD goto mkvenv
+type "%MSG%\first_run.txt"
+call :findpy
+if defined PYEXE goto mkvenv
+
+type "%MSG%\no_python.txt"
+echo [where py]
+where py 2>nul
+echo [where python]
+where python 2>nul
 echo.
-echo 找不到 Python 3.9 以上的版本。
-echo 請到 https://www.python.org/downloads/ 下載安裝，安裝時勾選「Add python.exe to PATH」，然後再執行一次這個檔案。
+where winget >nul 2>nul
+if errorlevel 1 goto manual
+type "%MSG%\ask_install.txt"
+choice /C YN /N /M "Install Python 3.12 now? [Y/N] "
+if errorlevel 2 goto manual
+winget install -e --id Python.Python.3.12 --scope user --accept-package-agreements --accept-source-agreements
+call :findpy
+if defined PYEXE goto mkvenv
+type "%MSG%\python_installed_restart.txt"
+goto fail
+
+:manual
+type "%MSG%\python_manual.txt"
+start "" "https://www.python.org/downloads/"
 goto fail
 
 :mkvenv
-%PYCMD% -m venv "%~dp0_zh_tools\.venv-win"
+echo Python: %PYEXE%
+"%PYEXE%" -m venv "%TOOLS%\.venv-win"
 if errorlevel 1 goto fail
 "%VPY%" -m pip install -q --disable-pip-version-check "UnityPy==1.25.4"
 if errorlevel 1 goto fail
 
 :run
-"%VPY%" "%~dp0_zh_tools\zh_update.py" --launch
+rem repair a half-finished environment (e.g. an earlier pip install was interrupted)
+"%VPY%" -c "import UnityPy" >nul 2>nul
+if errorlevel 1 "%VPY%" -m pip install -q --disable-pip-version-check "UnityPy==1.25.4"
+"%VPY%" "%TOOLS%\zh_update.py" --launch
 if errorlevel 1 goto failrun
-echo.
-echo 完成，這個視窗會在幾秒後自動關閉。
+type "%MSG%\done.txt"
 timeout /t 5 >nul
 exit /b 0
 
 :failrun
-echo.
-echo 更新過程有問題，請看上方訊息。遊戲仍可用目前的版本遊玩。
+type "%MSG%\failrun.txt"
 pause
 exit /b 1
 
 :nodir
-echo 找不到 _zh_tools 資料夾，請確認這個檔案放在遊戲資料夾裡。
+echo [ERROR] _zh_tools\zh_update.py not found. Keep this .bat in the game folder.
 pause
 exit /b 1
 
 :fail
-echo.
-echo 建立 Python 環境失敗，請把上面的訊息告訴 Claude。
+type "%MSG%\fail.txt"
 pause
 exit /b 1
+
+rem ---------------------------------------------------------------
+rem Find Python 3.9+: try the py launcher, python, python3, then the
+rem usual install folders (works even if Python is not on PATH).
+:findpy
+set "PYEXE="
+call :trycmd py -3
+if not defined PYEXE call :trycmd python
+if not defined PYEXE call :trycmd python3
+if defined PYEXE exit /b 0
+for /d %%D in ("%LocalAppData%\Programs\Python\Python3*") do if not defined PYEXE if exist "%%~D\python.exe" call :trycmd "%%~D\python.exe"
+for /d %%D in ("%ProgramFiles%\Python3*") do if not defined PYEXE if exist "%%~D\python.exe" call :trycmd "%%~D\python.exe"
+exit /b 0
+
+:trycmd
+set "PYOUT="
+rem "call" keeps cmd from stripping the quotes when the command starts with a quoted path
+for /f "usebackq delims=" %%P in (`call %* -c "import sys; print(sys.executable if sys.version_info[:2] >= (3, 9) else '')" 2^>nul`) do set "PYOUT=%%P"
+if defined PYOUT if exist "%PYOUT%" set "PYEXE=%PYOUT%"
+exit /b 0

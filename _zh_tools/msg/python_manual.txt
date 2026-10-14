@@ -1,0 +1,5 @@
+
+請手動安裝 Python：
+  1. 到 https://www.python.org/downloads/ 下載 Windows 版並執行安裝程式（已幫你打開網頁）。
+  2. 安裝畫面最下方請勾選「Add python.exe to PATH」，再按 Install Now。
+  3. 安裝完成後，再雙擊一次這個啟動檔。

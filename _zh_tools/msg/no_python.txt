@@ -1,0 +1,2 @@
+
+找不到 Python 3.9 以上的版本（已檢查 py、python、python3 指令與常見的安裝位置）。
