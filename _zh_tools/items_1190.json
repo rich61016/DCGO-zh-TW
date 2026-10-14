@@ -1,0 +1,1410 @@
+[
+ {
+  "id": 1,
+  "kind": "name",
+  "mode": "whole",
+  "key": "1 Digimon may attack without suspending, then per 2 colors, may battle or return 5 from opponent's trash to <Recovery +1>",
+  "en": "1 Digimon may attack without suspending, then per 2 colors, may battle or return 5 from opponent's trash to [[K:Recovery +1]]",
+  "tpl": null
+ },
+ {
+  "id": 2,
+  "kind": "name",
+  "mode": "whole",
+  "key": "1 [X Antibody]/[Chronicle] Digimon gains <Reboot> and <Blocker>, if during an attack, immunity and DP +5000",
+  "en": "1 [[N:X Antibody]]/[[N:Chronicle]] Digimon gains [[K:Reboot]] and [[K:Blocker]], if during an attack, immunity and DP +5000",
+  "tpl": null
+ },
+ {
+  "id": 3,
+  "kind": "name",
+  "mode": "whole",
+  "key": "1 enemy Digimon gets -7K DP, if 6 or less sec cards all their Digimon get -7K DP instead",
+  "en": "1 enemy Digimon gets -7K DP, if 6 or less sec cards all their Digimon get -7K DP instead",
+  "tpl": null
+ },
+ {
+  "id": 7,
+  "kind": "name",
+  "mode": "whole",
+  "key": "1 of your Digimon gains <Reboot>, <Blocker> and <De-Digivolve> immunity",
+  "en": "1 of your Digimon gains [[K:Reboot]], [[K:Blocker]] and [[K:De-Digivolve]] immunity",
+  "tpl": null
+ },
+ {
+  "id": 8,
+  "kind": "name",
+  "mode": "whole",
+  "key": "1 of your Digimon may attack, then may activate 1 [When Digivolving] effect",
+  "en": "1 of your Digimon may attack, then may activate 1 [[T:When Digivolving]] effect",
+  "tpl": null
+ },
+ {
+  "id": 9,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "1 of your Digimon may digivolve into a Digimon card with [Imperialdramon] in its name or the [Free] trait in the hand. Reduce this effect's paid cost by 1 for each of your opponent's Digimon.",
+  "en": "1 of your Digimon may digivolve into a Digimon card with [[N:Imperialdramon]] in its name or the [[N:Free]] trait in the hand. Reduce this effect's paid cost by 1 for each of your opponent's Digimon.",
+  "tpl": null
+ },
+ {
+  "id": 10,
+  "kind": "name",
+  "mode": "whole",
+  "key": "1 of your [Demon] may Digivolve into this",
+  "en": "1 of your [[N:Demon]] may Digivolve into this",
+  "tpl": null
+ },
+ {
+  "id": 11,
+  "kind": "name",
+  "mode": "whole",
+  "key": "1 of your [Knightmon] text Digimon may gain <Rush> and <Collision> and attack",
+  "en": "1 of your [[N:Knightmon]] text Digimon may gain [[K:Rush]] and [[K:Collision]] and attack",
+  "tpl": null
+ },
+ {
+  "id": 12,
+  "kind": "name",
+  "mode": "whole",
+  "key": "1 opponent's Digimon/Tamer can't unsuspend",
+  "en": "1 opponent's Digimon/Tamer can't unsuspend",
+  "tpl": null
+ },
+ {
+  "id": 13,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "2 of your Digimon may DNA digivolve into a [Free] trait Digimon card in the hand.",
+  "en": "2 of your Digimon may DNA digivolve into a [[N:Free]] trait Digimon card in the hand.",
+  "tpl": null
+ },
+ {
+  "id": 17,
+  "kind": "name",
+  "mode": "whole",
+  "key": "<De-Digivolve 1> 1 enemy Digimon, if 3 sec or less 1 enemy Digimon can't digivolve",
+  "en": "[[K:De-Digivolve 1]] 1 enemy Digimon, if 3 sec or less 1 enemy Digimon can't digivolve",
+  "tpl": null
+ },
+ {
+  "id": 18,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Activate",
+  "en": "Activate",
+  "tpl": null
+ },
+ {
+  "id": 19,
+  "kind": "name",
+  "mode": "frag",
+  "key": "Also treated as [",
+  "en": "Also treated as [",
+  "tpl": "Also treated as [{0}]"
+ },
+ {
+  "id": 20,
+  "kind": "name",
+  "mode": "whole",
+  "key": "Also treated as digivolution cards' colors",
+  "en": "Also treated as digivolution cards' colors",
+  "tpl": null
+ },
+ {
+  "id": 21,
+  "kind": "name",
+  "mode": "frag",
+  "key": "Also treated as including [",
+  "en": "Also treated as including [",
+  "tpl": "Also treated as including [{0}]"
+ },
+ {
+  "id": 22,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Battle 1 of your opponent's Digimon",
+  "en": "Battle 1 of your opponent's Digimon",
+  "tpl": null
+ },
+ {
+  "id": 23,
+  "kind": "name",
+  "mode": "whole",
+  "key": "By deleting 1 of your [Mamemon] in name Digimon, delete 1 opponent's lowest play cost Digimon",
+  "en": "By deleting 1 of your [[N:Mamemon]] in name Digimon, delete 1 opponent's lowest play cost Digimon",
+  "tpl": null
+ },
+ {
+  "id": 24,
+  "kind": "name",
+  "mode": "whole",
+  "key": "By deleting 1 of your [Mamemon] in name Digimon, delete all opponent's lowest play cost Digimon",
+  "en": "By deleting 1 of your [[N:Mamemon]] in name Digimon, delete all opponent's lowest play cost Digimon",
+  "tpl": null
+ },
+ {
+  "id": 25,
+  "kind": "name",
+  "mode": "whole",
+  "key": "By placing 1 [Knightmon] text card from hand or trash under this Tamer, <Draw 1>",
+  "en": "By placing 1 [[N:Knightmon]] text card from hand or trash under this Tamer, [[K:Draw 1]]",
+  "tpl": null
+ },
+ {
+  "id": 26,
+  "kind": "name",
+  "mode": "whole",
+  "key": "By returning this Tamer to the bottom of the deck, play 1 [Takato Matsuki] from hand, then may play 1 [Guilmon] from trash",
+  "en": "By returning this Tamer to the bottom of the deck, play 1 [[N:Takato Matsuki]] from hand, then may play 1 [[N:Guilmon]] from trash",
+  "tpl": null
+ },
+ {
+  "id": 27,
+  "kind": "name",
+  "mode": "whole",
+  "key": "By suspending this Tamer, 1 Digimon may digivolve or 2 Digimon may DNA digivolve",
+  "en": "By suspending this Tamer, 1 Digimon may digivolve or 2 Digimon may DNA digivolve",
+  "tpl": null
+ },
+ {
+  "id": 28,
+  "kind": "name",
+  "mode": "whole",
+  "key": "By trashing 1 security from player with most security, activate [Security] effect of this Digimon.",
+  "en": "By trashing 1 security from player with most security, activate [[T:Security]] effect of this Digimon.",
+  "tpl": null
+ },
+ {
+  "id": 29,
+  "kind": "name",
+  "mode": "whole",
+  "key": "By trashing your top security card, [Chronicle] Digimon don't leave",
+  "en": "By trashing your top security card, [[N:Chronicle]] Digimon don't leave",
+  "tpl": null
+ },
+ {
+  "id": 30,
+  "kind": "name",
+  "mode": "whole",
+  "key": "By unsuspending 1 of your Digimon, your suspended Digimon don't leave",
+  "en": "By unsuspending 1 of your Digimon, your suspended Digimon don't leave",
+  "tpl": null
+ },
+ {
+  "id": 31,
+  "kind": "name",
+  "mode": "whole",
+  "key": "DP -8000, then if opponent has 5 or more memory, gain 2 memory",
+  "en": "DP -8000, then if opponent has 5 or more memory, gain 2 memory",
+  "tpl": null
+ },
+ {
+  "id": 32,
+  "kind": "name",
+  "mode": "whole",
+  "key": "Delete 1 enemy Digimon with 6 or less cost",
+  "en": "Delete 1 enemy Digimon with 6 or less cost",
+  "tpl": null
+ },
+ {
+  "id": 33,
+  "kind": "name",
+  "mode": "whole",
+  "key": "Delete 1 of your other [Knightmon] in text Digimon to not leave",
+  "en": "Delete 1 of your other [[N:Knightmon]] in text Digimon to not leave",
+  "tpl": null
+ },
+ {
+  "id": 34,
+  "kind": "name",
+  "mode": "whole",
+  "key": "Delete 1 opponent's highest play cost Digimon",
+  "en": "Delete 1 opponent's highest play cost Digimon",
+  "tpl": null
+ },
+ {
+  "id": 35,
+  "kind": "name",
+  "mode": "whole",
+  "key": "Digivolve into a [Chronicle] trait Digimon card from hand or trash",
+  "en": "Digivolve into a [[N:Chronicle]] trait Digimon card from hand or trash",
+  "tpl": null
+ },
+ {
+  "id": 36,
+  "kind": "name",
+  "mode": "whole",
+  "key": "Digivolve into a [Sukamon]/[Etemon]/[Mamemon] in name from hand for 2 less",
+  "en": "Digivolve into a [[N:Sukamon]]/[[N:Etemon]]/[[N:Mamemon]] in name from hand for 2 less",
+  "tpl": null
+ },
+ {
+  "id": 37,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Do not Digivolve",
+  "en": "Do not Digivolve",
+  "tpl": null
+ },
+ {
+  "id": 38,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Don't activate",
+  "en": "Don't activate",
+  "tpl": null
+ },
+ {
+  "id": 39,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Don't return",
+  "en": "Don't return",
+  "tpl": null
+ },
+ {
+  "id": 40,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Don't use",
+  "en": "Don't use",
+  "tpl": null
+ },
+ {
+  "id": 41,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "From which area will you digivolve?",
+  "en": "From which area will you digivolve?",
+  "tpl": null
+ },
+ {
+  "id": 42,
+  "kind": "name",
+  "mode": "whole",
+  "key": "Give an enemy Digimon -12K DP, if 3 sec or less <Recovery +1>",
+  "en": "Give an enemy Digimon -12K DP, if 3 sec or less [[K:Recovery +1]]",
+  "tpl": null
+ },
+ {
+  "id": 43,
+  "kind": "name",
+  "mode": "whole",
+  "key": "Give an enemy Digimon -6K DP, if 3 sec or less delete 1 6K DP or lower enemy Digimon",
+  "en": "Give an enemy Digimon -6K DP, if 3 sec or less delete 1 6K DP or lower enemy Digimon",
+  "tpl": null
+ },
+ {
+  "id": 44,
+  "kind": "name",
+  "mode": "whole",
+  "key": "If 3 or more sec, trash top/bot sec, <Draw 1>, gain 1 memory. If 2 or less sec, place [Witchelny] text from hand to bot sec.",
+  "en": "If 3 or more sec, trash top/bot sec, [[K:Draw 1]], gain 1 memory. If 2 or less sec, place [[N:Witchelny]] text from hand to bot sec.",
+  "tpl": null
+ },
+ {
+  "id": 45,
+  "kind": "name",
+  "mode": "whole",
+  "key": "May place [Witchelny] text card from hand to bot sec, then by trashing top sec 1 of your Digimon may attack",
+  "en": "May place [[N:Witchelny]] text card from hand to bot sec, then by trashing top sec 1 of your Digimon may attack",
+  "tpl": null
+ },
+ {
+  "id": 46,
+  "kind": "name",
+  "mode": "whole",
+  "key": "May play 1 [Chronicle] trait card from hand for 6 less, it gains <Rush>",
+  "en": "May play 1 [[N:Chronicle]] trait card from hand for 6 less, it gains [[K:Rush]]",
+  "tpl": null
+ },
+ {
+  "id": 47,
+  "kind": "name",
+  "mode": "whole",
+  "key": "May play 1 [Hinukamuy] Token, then 1 of your white Digimon isn't affected by opponent's Digimon effects",
+  "en": "May play 1 [[N:Hinukamuy]] Token, then 1 of your white Digimon isn't affected by opponent's Digimon effects",
+  "tpl": null
+ },
+ {
+  "id": 48,
+  "kind": "name",
+  "mode": "whole",
+  "key": "May play 1 play cost 4 or lower [Beast]/[Animal]/[Sovereign] Digimon from hand for free",
+  "en": "May play 1 play cost 4 or lower [[N:Beast]]/[[N:Animal]]/[[N:Sovereign]] Digimon from hand for free",
+  "tpl": null
+ },
+ {
+  "id": 49,
+  "kind": "name",
+  "mode": "whole",
+  "key": "May play or use 1 [Mammal]/[Beast]/[Beastkin]/[Royal Knight] card from hand for 4 less, further reduced per suspended Digimon",
+  "en": "May play or use 1 [[N:Mammal]]/[[N:Beast]]/[[N:Beastkin]]/[[N:Royal Knight]] card from hand for 4 less, further reduced per suspended Digimon",
+  "tpl": null
+ },
+ {
+  "id": 50,
+  "kind": "name",
+  "mode": "whole",
+  "key": "May play or use 1 cost 4 or lower [Knightmon] text card from hand for free",
+  "en": "May play or use 1 cost 4 or lower [[N:Knightmon]] text card from hand for free",
+  "tpl": null
+ },
+ {
+  "id": 51,
+  "kind": "name",
+  "mode": "whole",
+  "key": "May play or use 1 cost 8 or lower [Knightmon] text card from hand or trash for free",
+  "en": "May play or use 1 cost 8 or lower [[N:Knightmon]] text card from hand or trash for free",
+  "tpl": null
+ },
+ {
+  "id": 52,
+  "kind": "name",
+  "mode": "whole",
+  "key": "May play up to 2 [Chuumon]/[Sukamon]/[Etemon] in name Digimon with up to 6 total play cost from hand or trash",
+  "en": "May play up to 2 [[N:Chuumon]]/[[N:Sukamon]]/[[N:Etemon]] in name Digimon with up to 6 total play cost from hand or trash",
+  "tpl": null
+ },
+ {
+  "id": 53,
+  "kind": "name",
+  "mode": "whole",
+  "key": "May return up to 3 [Mamemon] in text Digimon cards from trash to deck top, then delete 1 Digimon",
+  "en": "May return up to 3 [[N:Mamemon]] in text Digimon cards from trash to deck top, then delete 1 Digimon",
+  "tpl": null
+ },
+ {
+  "id": 54,
+  "kind": "name",
+  "mode": "whole",
+  "key": "May suspend 1 Digimon, then may return 1 opponent's lowest DP Digimon to deck bottom",
+  "en": "May suspend 1 Digimon, then may return 1 opponent's lowest DP Digimon to deck bottom",
+  "tpl": null
+ },
+ {
+  "id": 55,
+  "kind": "name",
+  "mode": "whole",
+  "key": "Place 1 [Hybrid] under this or a Tamer to digivolve placed into [Hybrid] for 2 less",
+  "en": "Place 1 [[N:Hybrid]] under this or a Tamer to digivolve placed into [[N:Hybrid]] for 2 less",
+  "tpl": null
+ },
+ {
+  "id": 56,
+  "kind": "name",
+  "mode": "whole",
+  "key": "Place 1 of each player's Digimon as top sec",
+  "en": "Place 1 of each player's Digimon as top sec",
+  "tpl": null
+ },
+ {
+  "id": 57,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Return 10 cards",
+  "en": "Return 10 cards",
+  "tpl": null
+ },
+ {
+  "id": 58,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Return 10 cards from your trash to the bottom of the deck to add 6 to the play cost maximum?",
+  "en": "Return 10 cards from your trash to the bottom of the deck to add 6 to the play cost maximum?",
+  "tpl": null
+ },
+ {
+  "id": 59,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Return 5 cards from opponent's trash, Recovery +1",
+  "en": "Return 5 cards from opponent's trash, Recovery +1",
+  "tpl": null
+ },
+ {
+  "id": 60,
+  "kind": "name",
+  "mode": "whole",
+  "key": "Reveal the top 3 cards of deck, add 1 [Leopardmon] text card and 1 [Beast]/[Animal]/[Sovereign] Digimon to hand",
+  "en": "Reveal the top 3 cards of deck, add 1 [[N:Leopardmon]] text card and 1 [[N:Beast]]/[[N:Animal]]/[[N:Sovereign]] Digimon to hand",
+  "tpl": null
+ },
+ {
+  "id": 61,
+  "kind": "name",
+  "mode": "whole",
+  "key": "Reveal the top 3 cards of deck, add 1 [X Antibody]/[Chronicle] trait card to hand",
+  "en": "Reveal the top 3 cards of deck, add 1 [[N:X Antibody]]/[[N:Chronicle]] trait card to hand",
+  "tpl": null
+ },
+ {
+  "id": 62,
+  "kind": "name",
+  "mode": "whole",
+  "key": "Reveal top 3, may play 1 play cost 10 or lower [Mamemon] in name/[Mutant] trait Digimon for free",
+  "en": "Reveal top 3, may play 1 play cost 10 or lower [[N:Mamemon]] in name/[[N:Mutant]] trait Digimon for free",
+  "tpl": null
+ },
+ {
+  "id": 63,
+  "kind": "name",
+  "mode": "whole",
+  "key": "Reveal top 3, may play 1 play cost 7 or lower [Mamemon] in name/[Mutant] trait Digimon for free",
+  "en": "Reveal top 3, may play 1 play cost 7 or lower [[N:Mamemon]] in name/[[N:Mutant]] trait Digimon for free",
+  "tpl": null
+ },
+ {
+  "id": 64,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Security Bottom Cards",
+  "en": "Security Bottom Cards",
+  "tpl": null
+ },
+ {
+  "id": 65,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Select 1 Digimon card with [Beast], [Animal] or [Sovereign] in any of its traits.",
+  "en": "Select 1 Digimon card with [[N:Beast]], [[N:Animal]] or [[N:Sovereign]] in any of its traits.",
+  "tpl": null
+ },
+ {
+  "id": 66,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Select 1 Digimon or Tamer that can't unsuspend until their turn ends.",
+  "en": "Select 1 Digimon or Tamer that can't unsuspend until their turn ends.",
+  "tpl": null
+ },
+ {
+  "id": 67,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Select 1 Digimon that can't attack players.",
+  "en": "Select 1 Digimon that can't attack players.",
+  "tpl": null
+ },
+ {
+  "id": 68,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Select 1 Digimon that can't digivolve.",
+  "en": "Select 1 Digimon that can't digivolve.",
+  "tpl": null
+ },
+ {
+  "id": 69,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Select 1 Digimon that will attack without suspending.",
+  "en": "Select 1 Digimon that will attack without suspending.",
+  "tpl": null
+ },
+ {
+  "id": 70,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Select 1 Digimon that will gain <Reboot> and <Blocker>. If during an attack, Digimon effect immunity and +5K DP.",
+  "en": "Select 1 Digimon that will gain [[K:Reboot]] and [[K:Blocker]]. If during an attack, Digimon effect immunity and +5K DP.",
+  "tpl": null
+ },
+ {
+  "id": 71,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Select 1 Digimon that will gain <Reboot>, <Blocker> and De-Digivolve immunity.",
+  "en": "Select 1 Digimon that will gain [[K:Reboot]], [[K:Blocker]] and De-Digivolve immunity.",
+  "tpl": null
+ },
+ {
+  "id": 72,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Select 1 Digimon to gain <Rush> and <Collision> and attack.",
+  "en": "Select 1 Digimon to gain [[K:Rush]] and [[K:Collision]] and attack.",
+  "tpl": null
+ },
+ {
+  "id": 73,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Select 1 [Kudamon] to place Digivolution cards under.",
+  "en": "Select 1 [[N:Kudamon]] to place Digivolution cards under.",
+  "tpl": null
+ },
+ {
+  "id": 74,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Select 1 card to place under another card.",
+  "en": "Select 1 card to place under another card.",
+  "tpl": null
+ },
+ {
+  "id": 75,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Select 1 card to place under this Tamer.",
+  "en": "Select 1 card to place under this Tamer.",
+  "tpl": null
+ },
+ {
+  "id": 76,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Select 1 card with [Knightmon] in its name.",
+  "en": "Select 1 card with [[N:Knightmon]] in its name.",
+  "tpl": null
+ },
+ {
+  "id": 77,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Select 1 card with [Knightmon] in its text.",
+  "en": "Select 1 card with [[N:Knightmon]] in its text.",
+  "tpl": null
+ },
+ {
+  "id": 78,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Select 1 card with [Leopardmon] in its text.",
+  "en": "Select 1 card with [[N:Leopardmon]] in its text.",
+  "tpl": null
+ },
+ {
+  "id": 79,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Select 1 card with [Mamemon] in its text.",
+  "en": "Select 1 card with [[N:Mamemon]] in its text.",
+  "tpl": null
+ },
+ {
+  "id": 80,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Select 1 card with the [Mutant] trait.",
+  "en": "Select 1 card with the [[N:Mutant]] trait.",
+  "tpl": null
+ },
+ {
+  "id": 81,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Select 1 card with the [X Antibody] or [Chronicle] trait.",
+  "en": "Select 1 card with the [[N:X Antibody]] or [[N:Chronicle]] trait.",
+  "tpl": null
+ },
+ {
+  "id": 82,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Select 1 level 4 [Holy Beast] trait yellow Digimon card to place in Digivolution cards.",
+  "en": "Select 1 level 4 [[N:Holy Beast]] trait yellow Digimon card to place in Digivolution cards.",
+  "tpl": null
+ },
+ {
+  "id": 83,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Select 1 level 5 [Holy Beast] trait yellow Digimon card to place in Digivolution cards.",
+  "en": "Select 1 level 5 [[N:Holy Beast]] trait yellow Digimon card to place in Digivolution cards.",
+  "tpl": null
+ },
+ {
+  "id": 84,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Select 1 white Digimon that isn't affected by opponent's Digimon effects.",
+  "en": "Select 1 white Digimon that isn't affected by opponent's Digimon effects.",
+  "tpl": null
+ },
+ {
+  "id": 85,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Select 10 cards to return to the bottom of the deck.",
+  "en": "Select 10 cards to return to the bottom of the deck.",
+  "tpl": null
+ },
+ {
+  "id": 86,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Select 5 cards in opponent's trash to place at the bottom of the deck.",
+  "en": "Select 5 cards in opponent's trash to place at the bottom of the deck.",
+  "tpl": null
+ },
+ {
+  "id": 87,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Select Tamer to trash 2 from",
+  "en": "Select Tamer to trash 2 from",
+  "tpl": null
+ },
+ {
+  "id": 88,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Select up to {0} Digimon cards with up to {1} total play cost to play from your hand.",
+  "en": "Select up to {0} Digimon cards with up to {1} total play cost to play from your hand.",
+  "tpl": null
+ },
+ {
+  "id": 89,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Select up to {0} Digimon cards with up to {1} total play cost to play from your trash.",
+  "en": "Select up to {0} Digimon cards with up to {1} total play cost to play from your trash.",
+  "tpl": null
+ },
+ {
+  "id": 90,
+  "kind": "name",
+  "mode": "whole",
+  "key": "Suspend 1 black <Blocker> to <Draw 1> if 7 or less in hand.",
+  "en": "Suspend 1 black [[K:Blocker]] to [[K:Draw 1]] if 7 or less in hand.",
+  "tpl": null
+ },
+ {
+  "id": 91,
+  "kind": "name",
+  "mode": "whole",
+  "key": "Suspend 1 opponent's Digimon/Tamer",
+  "en": "Suspend 1 opponent's Digimon/Tamer",
+  "tpl": null
+ },
+ {
+  "id": 92,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "The opponent is choosing from which area to Digivolve.",
+  "en": "The opponent is choosing from which area to Digivolve.",
+  "tpl": null
+ },
+ {
+  "id": 93,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "The opponent is choosing to which area to place a card.",
+  "en": "The opponent is choosing to which area to place a card.",
+  "tpl": null
+ },
+ {
+  "id": 94,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "The opponent is choosing whether to activate a [When Digivolving] effect.",
+  "en": "The opponent is choosing whether to activate a [[T:When Digivolving]] effect.",
+  "tpl": null
+ },
+ {
+  "id": 95,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "The opponent is choosing whether to return cards from their trash to the bottom of the deck.",
+  "en": "The opponent is choosing whether to return cards from their trash to the bottom of the deck.",
+  "tpl": null
+ },
+ {
+  "id": 96,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "The opponent is choosing whether to trash their top security card.",
+  "en": "The opponent is choosing whether to trash their top security card.",
+  "tpl": null
+ },
+ {
+  "id": 97,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "The opponent is selecting 1 Digimon or Tamer that can't unsuspend until your turn ends.",
+  "en": "The opponent is selecting 1 Digimon or Tamer that can't unsuspend until your turn ends.",
+  "tpl": null
+ },
+ {
+  "id": 98,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "The opponent is selecting 1 Digimon that can't attack players.",
+  "en": "The opponent is selecting 1 Digimon that can't attack players.",
+  "tpl": null
+ },
+ {
+  "id": 99,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "The opponent is selecting 1 Digimon that can't digivolve.",
+  "en": "The opponent is selecting 1 Digimon that can't digivolve.",
+  "tpl": null
+ },
+ {
+  "id": 100,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "The opponent is selecting 1 Digimon that will attack without suspending.",
+  "en": "The opponent is selecting 1 Digimon that will attack without suspending.",
+  "tpl": null
+ },
+ {
+  "id": 101,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "The opponent is selecting 1 Digimon that will gain <Reboot> and <Blocker>. If during an attack, Digimon effect immunity and +5K DP.",
+  "en": "The opponent is selecting 1 Digimon that will gain [[K:Reboot]] and [[K:Blocker]]. If during an attack, Digimon effect immunity and +5K DP.",
+  "tpl": null
+ },
+ {
+  "id": 102,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "The opponent is selecting 1 Digimon that will gain <Reboot>, <Blocker> and De-Digivolve immunity.",
+  "en": "The opponent is selecting 1 Digimon that will gain [[K:Reboot]], [[K:Blocker]] and De-Digivolve immunity.",
+  "tpl": null
+ },
+ {
+  "id": 103,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "The opponent is selecting 1 Digimon to gain <Rush> and <Collision> and attack.",
+  "en": "The opponent is selecting 1 Digimon to gain [[K:Rush]] and [[K:Collision]] and attack.",
+  "tpl": null
+ },
+ {
+  "id": 104,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "The opponent is selecting 1 [Kudamon] to place Digivolution cards under.",
+  "en": "The opponent is selecting 1 [[N:Kudamon]] to place Digivolution cards under.",
+  "tpl": null
+ },
+ {
+  "id": 105,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "The opponent is selecting 1 card to place under another card.",
+  "en": "The opponent is selecting 1 card to place under another card.",
+  "tpl": null
+ },
+ {
+  "id": 106,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "The opponent is selecting 1 level 4 [Holy Beast] trait yellow Digimon card to place in Digivolution cards.",
+  "en": "The opponent is selecting 1 level 4 [[N:Holy Beast]] trait yellow Digimon card to place in Digivolution cards.",
+  "tpl": null
+ },
+ {
+  "id": 107,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "The opponent is selecting 1 level 5 [Holy Beast] trait yellow Digimon card to place in Digivolution cards.",
+  "en": "The opponent is selecting 1 level 5 [[N:Holy Beast]] trait yellow Digimon card to place in Digivolution cards.",
+  "tpl": null
+ },
+ {
+  "id": 108,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "The opponent is selecting 1 white Digimon that isn't affected by opponent's Digimon effects.",
+  "en": "The opponent is selecting 1 white Digimon that isn't affected by opponent's Digimon effects.",
+  "tpl": null
+ },
+ {
+  "id": 109,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "The opponent is selecting 10 cards to return to the bottom of the deck.",
+  "en": "The opponent is selecting 10 cards to return to the bottom of the deck.",
+  "tpl": null
+ },
+ {
+  "id": 110,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "The opponent is selecting up to {0} Digimon cards with up to {1} total play cost to play from their hand.",
+  "en": "The opponent is selecting up to {0} Digimon cards with up to {1} total play cost to play from their hand.",
+  "tpl": null
+ },
+ {
+  "id": 111,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "The opponent is selecting up to {0} Digimon cards with up to {1} total play cost to play from their trash.",
+  "en": "The opponent is selecting up to {0} Digimon cards with up to {1} total play cost to play from their trash.",
+  "tpl": null
+ },
+ {
+  "id": 112,
+  "kind": "name",
+  "mode": "whole",
+  "key": "This Tamer may digivolve into [LordKnightmon] from hand or trash for 3",
+  "en": "This Tamer may digivolve into [[N:LordKnightmon]] from hand or trash for 3",
+  "tpl": null
+ },
+ {
+  "id": 113,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "To which area will you place a card?",
+  "en": "To which area will you place a card?",
+  "tpl": null
+ },
+ {
+  "id": 114,
+  "kind": "name",
+  "mode": "whole",
+  "key": "Trash 1 [Dark Animal]/[Shaman]/[Undead]/[TS] to delete 1 enemy lvl 4 or lower unsuspended Digimon",
+  "en": "Trash 1 [[N:Dark Animal]]/[[N:Shaman]]/[[N:Undead]]/[[N:TS]] to delete 1 enemy lvl 4 or lower unsuspended Digimon",
+  "tpl": null
+ },
+ {
+  "id": 115,
+  "kind": "name",
+  "mode": "whole",
+  "key": "Trash 1 [Veedramon] text/[Armor Form]/[Free] traits to <Draw 1> and gain 1 memory",
+  "en": "Trash 1 [[N:Veedramon]] text/[[N:Armor Form]]/[[N:Free]] traits to [[K:Draw 1]] and gain 1 memory",
+  "tpl": null
+ },
+ {
+  "id": 116,
+  "kind": "name",
+  "mode": "whole",
+  "key": "Trash 1 card to give 1 of your [Demon]/[Shaman]/[Undead] Digimon <Blocker> and <Retaliation> until enemy turn end",
+  "en": "Trash 1 card to give 1 of your [[N:Demon]]/[[N:Shaman]]/[[N:Undead]] Digimon [[K:Blocker]] and [[K:Retaliation]] until enemy turn end",
+  "tpl": null
+ },
+ {
+  "id": 117,
+  "kind": "name",
+  "mode": "whole",
+  "key": "Trash 3 face-downs from tamers and place lv4 & lv5 [Holy Beast] trait yellow Digimon cards from trash to under [Kudamon] to warp it to [Kentaurosmon]",
+  "en": "Trash 3 face-downs from tamers and place lv4 & lv5 [[N:Holy Beast]] trait yellow Digimon cards from trash to under [[N:Kudamon]] to warp it to [[N:Kentaurosmon]]",
+  "tpl": null
+ },
+ {
+  "id": 118,
+  "kind": "name",
+  "mode": "whole",
+  "key": "Trash your top sec, this Digimon gets +10K DP, if 3 sec or less trash enemy top sec",
+  "en": "Trash your top sec, this Digimon gets +10K DP, if 3 sec or less trash enemy top sec",
+  "tpl": null
+ },
+ {
+  "id": 119,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Under Tamer with inherited effects",
+  "en": "Under Tamer with inherited effects",
+  "tpl": null
+ },
+ {
+  "id": 120,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Under this Digimon",
+  "en": "Under this Digimon",
+  "tpl": null
+ },
+ {
+  "id": 121,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Which effect will you activate? ({0} remaining)",
+  "en": "Which effect will you activate? ({0} remaining)",
+  "tpl": null
+ },
+ {
+  "id": 122,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Will you activate 1 of this Digimon's [When Digivolving] effects?",
+  "en": "Will you activate 1 of this Digimon's [[T:When Digivolving]] effects?",
+  "tpl": null
+ },
+ {
+  "id": 123,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Will you play 1 [Hinukamuy] Token?",
+  "en": "Will you play 1 [[N:Hinukamuy]] Token?",
+  "tpl": null
+ },
+ {
+  "id": 124,
+  "kind": "prompt",
+  "mode": "whole",
+  "key": "Will you trash 1 player's security?",
+  "en": "Will you trash 1 player's security?",
+  "tpl": null
+ },
+ {
+  "id": 125,
+  "kind": "name",
+  "mode": "whole",
+  "key": "Your [Knightmon] text Digimon gain Alliance and Piercing",
+  "en": "Your [[N:Knightmon]] text Digimon gain Alliance and Piercing",
+  "tpl": null
+ },
+ {
+  "id": 126,
+  "kind": "name",
+  "mode": "whole",
+  "key": "Your [Mamemon] in name Digimon gain Guard",
+  "en": "Your [[N:Mamemon]] in name Digimon gain Guard",
+  "tpl": null
+ },
+ {
+  "id": 127,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[All Turns] When this Digimon suspends, suspend 1 of your opponent's Digimon or Tamers.",
+  "en": "[[T:All Turns]] When this Digimon suspends, suspend 1 of your opponent's Digimon or Tamers.",
+  "tpl": null
+ },
+ {
+  "id": 128,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[All Turns] [Once Per Turn] When any of your Digimon with [Knightmon] in their texts are played, <De-Digivolve 1> 1 of your opponent's Digimon.",
+  "en": "[[T:All Turns]] [[T:Once Per Turn]] When any of your Digimon with [[N:Knightmon]] in their texts are played, [[K:De-Digivolve 1]] 1 of your opponent's Digimon.",
+  "tpl": null
+ },
+ {
+  "id": 129,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[All Turns] [Once Per Turn] When any of your [Chronicle] trait Digimon would leave the battle area, by trashing your top security card, they don't leave.",
+  "en": "[[T:All Turns]] [[T:Once Per Turn]] When any of your [[N:Chronicle]] trait Digimon would leave the battle area, by trashing your top security card, they don't leave.",
+  "tpl": null
+ },
+ {
+  "id": 130,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[All Turns] [Once Per Turn] When any of your [Knightmon] text Digimon are played or deleted, by placing 1 such card from your hand or trash under this Tamer, <Draw 1>.",
+  "en": "[[T:All Turns]] [[T:Once Per Turn]] When any of your [[N:Knightmon]] text Digimon are played or deleted, by placing 1 such card from your hand or trash under this Tamer, [[K:Draw 1]].",
+  "tpl": null
+ },
+ {
+  "id": 131,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[All Turns] [Once Per Turn] When any of your suspended Digimon would leave the battle area other than by your effects, by unsuspending 1 of your Digimon, they don't leave.",
+  "en": "[[T:All Turns]] [[T:Once Per Turn]] When any of your suspended Digimon would leave the battle area other than by your effects, by unsuspending 1 of your Digimon, they don't leave.",
+  "tpl": null
+ },
+ {
+  "id": 132,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[All Turns] [Once Per Turn] When any of your white Digimon suspend, you may use 1 use cost 5 or lower Option card with [Huckmon] in its text from your hand or this Digimon's digivolution cards without paying the cost.",
+  "en": "[[T:All Turns]] [[T:Once Per Turn]] When any of your white Digimon suspend, you may use 1 use cost 5 or lower Option card with [[N:Huckmon]] in its text from your hand or this Digimon's digivolution cards without paying the cost.",
+  "tpl": null
+ },
+ {
+  "id": 133,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[All Turns] [Once Per Turn] When security stacks are removed from, 1 of your opponent's Digimon gets -12000 DP until their turn ends. Then, if you have 3 or fewer security cards, <Recovery +1>",
+  "en": "[[T:All Turns]] [[T:Once Per Turn]] When security stacks are removed from, 1 of your opponent's Digimon gets -12000 DP until their turn ends. Then, if you have 3 or fewer security cards, [[K:Recovery +1]]",
+  "tpl": null
+ },
+ {
+  "id": 134,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[All Turns] [Once Per Turn] When this Digimon would leave the battle area other than by your effects, by deleting 1 of your other Digimon with [Knightmon] in its text, it doesn't leave.",
+  "en": "[[T:All Turns]] [[T:Once Per Turn]] When this Digimon would leave the battle area other than by your effects, by deleting 1 of your other Digimon with [[N:Knightmon]] in its text, it doesn't leave.",
+  "tpl": null
+ },
+ {
+  "id": 135,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[All Turns] [Once Per Turn] When your security stack is removed from, 1 of your opponent's Digimon gets -6000 DP for the turn. Then, if you have 3 or fewer security cards, delete 1 of their 6000 DP or lower Digimon.",
+  "en": "[[T:All Turns]] [[T:Once Per Turn]] When your security stack is removed from, 1 of your opponent's Digimon gets -6000 DP for the turn. Then, if you have 3 or fewer security cards, delete 1 of their 6000 DP or lower Digimon.",
+  "tpl": null
+ },
+ {
+  "id": 136,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[All Turns] [Once Per Turn] When your security stack is removed from, <De-Digivolve 1> 1 of your opponent's Digimon. Then, if you have 3 or fewer security cards, 1 of their Digimon can't digivolve until their turn ends.",
+  "en": "[[T:All Turns]] [[T:Once Per Turn]] When your security stack is removed from, [[K:De-Digivolve 1]] 1 of your opponent's Digimon. Then, if you have 3 or fewer security cards, 1 of their Digimon can't digivolve until their turn ends.",
+  "tpl": null
+ },
+ {
+  "id": 137,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[End of All Turns] [Once Per Turn] By suspending 1 of your black Digimon with <Blocker>, if your hand has 7 or fewer cards, <Draw 1>.",
+  "en": "[[T:End of All Turns]] [[T:Once Per Turn]] By suspending 1 of your black Digimon with [[K:Blocker]], if your hand has 7 or fewer cards, [[K:Draw 1]].",
+  "tpl": null
+ },
+ {
+  "id": 138,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[End of Attack] [Once Per Turn] This Digimon may digivolve into a Digimon card with the [Chronicle] trait in the hand or trash.",
+  "en": "[[T:End of Attack]] [[T:Once Per Turn]] This Digimon may digivolve into a Digimon card with the [[N:Chronicle]] trait in the hand or trash.",
+  "tpl": null
+ },
+ {
+  "id": 139,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[End of Your Turn] By suspending this Tamer, activate 1 of the effects below: - 1 of your Digimon may digivolve into a Digimon card with [Imperialdramon] in its name or the [Free] trait in the hand. Reduce this effect's paid cost by 1 for each of your opponent's Digimon. - 2 of your Digimon may DNA digivolve into a [Free] trait Digimon card in the hand.",
+  "en": "[[T:End of Your Turn]] By suspending this Tamer, activate 1 of the effects below: - 1 of your Digimon may digivolve into a Digimon card with [[N:Imperialdramon]] in its name or the [[N:Free]] trait in the hand. Reduce this effect's paid cost by 1 for each of your opponent's Digimon. - 2 of your Digimon may DNA digivolve into a [[N:Free]] trait Digimon card in the hand.",
+  "tpl": null
+ },
+ {
+  "id": 140,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[End of Your Turn] [Once Per Turn] By deleting 1 of your Digimon with [Mamemon] in its name, delete 1 of your opponent's Digimon with the lowest play cost.",
+  "en": "[[T:End of Your Turn]] [[T:Once Per Turn]] By deleting 1 of your Digimon with [[N:Mamemon]] in its name, delete 1 of your opponent's Digimon with the lowest play cost.",
+  "tpl": null
+ },
+ {
+  "id": 141,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[End of Your Turn] [Once Per Turn] By deleting 1 of your Digimon with [Mamemon] in its name, delete all of your opponent's Digimon with the lowest play cost.",
+  "en": "[[T:End of Your Turn]] [[T:Once Per Turn]] By deleting 1 of your Digimon with [[N:Mamemon]] in its name, delete all of your opponent's Digimon with the lowest play cost.",
+  "tpl": null
+ },
+ {
+  "id": 142,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[End of Your Turn] [Once Per Turn] You may play 1 [Chronicle] trait card without [Alphamon] in its name from your hand with the cost reduced by 6. It gains <Rush> for the turn.",
+  "en": "[[T:End of Your Turn]] [[T:Once Per Turn]] You may play 1 [[N:Chronicle]] trait card without [[N:Alphamon]] in its name from your hand with the cost reduced by 6. It gains [[K:Rush]] for the turn.",
+  "tpl": null
+ },
+ {
+  "id": 143,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[Main] [Once Per Turn] By trashing 3 bottom face-down cards from under any of your Tamers and placing 1 each of level 4 and level 5 [Holy Beast] trait yellow Digimon cards from your trash as 1 of your [Kudamon]'s bottom digivolution cards, it may digivolve into [Kentaurosmon] in the hand or trash, ignoring level and with the cost reduced by 1.",
+  "en": "[[T:Main]] [[T:Once Per Turn]] By trashing 3 bottom face-down cards from under any of your Tamers and placing 1 each of level 4 and level 5 [[N:Holy Beast]] trait yellow Digimon cards from your trash as 1 of your [[N:Kudamon]]'s bottom digivolution cards, it may digivolve into [[N:Kentaurosmon]] in the hand or trash, ignoring level and with the cost reduced by 1.",
+  "tpl": null
+ },
+ {
+  "id": 144,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[Main] [Once Per Turn] If this Tamer has 3 or more [Knightmon] text cards under it, it may digivolve into [LordKnightmon] in the hand or trash for a digivolution cost of 3, ignoring digivolution requirements.",
+  "en": "[[T:Main]] [[T:Once Per Turn]] If this Tamer has 3 or more [[N:Knightmon]] text cards under it, it may digivolve into [[N:LordKnightmon]] in the hand or trash for a digivolution cost of 3, ignoring digivolution requirements.",
+  "tpl": null
+ },
+ {
+  "id": 145,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[On Deletion] Delete 1 of your opponent’s Digimon with a play cost of 6 or less.",
+  "en": "[[T:On Deletion]] Delete 1 of your opponent’s Digimon with a play cost of 6 or less.",
+  "tpl": null
+ },
+ {
+  "id": 146,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[On Play] Reveal the top 3 cards of your deck. Add 1 card with [Knightmon] in its text and 1 card with [Knightmon] in its name among them to the hand. Return the rest to the bottom of the deck.",
+  "en": "[[T:On Play]] Reveal the top 3 cards of your deck. Add 1 card with [[N:Knightmon]] in its text and 1 card with [[N:Knightmon]] in its name among them to the hand. Return the rest to the bottom of the deck.",
+  "tpl": null
+ },
+ {
+  "id": 147,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[On Play] Reveal the top 3 cards of your deck. Add 1 card with [Leopardmon] in its text and 1 Digimon card with [Beast], [Animal] or [Sovereign], other than [Sea Animal], in any of its traits among them to the hand. Return the rest to the bottom of the deck.",
+  "en": "[[T:On Play]] Reveal the top 3 cards of your deck. Add 1 card with [[N:Leopardmon]] in its text and 1 Digimon card with [[N:Beast]], [[N:Animal]] or [[N:Sovereign]], other than [[N:Sea Animal]], in any of its traits among them to the hand. Return the rest to the bottom of the deck.",
+  "tpl": null
+ },
+ {
+  "id": 148,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[On Play] Reveal the top 3 cards of your deck. Add 1 card with [Mamemon] in its text and 1 card with the [Mutant] trait among them to the hand. Return the rest to the bottom of the deck.",
+  "en": "[[T:On Play]] Reveal the top 3 cards of your deck. Add 1 card with [[N:Mamemon]] in its text and 1 card with the [[N:Mutant]] trait among them to the hand. Return the rest to the bottom of the deck.",
+  "tpl": null
+ },
+ {
+  "id": 149,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[Start of Your Main Phase] By placing 1 [Hybrid] trait card from your hand or trash as this Digimon’s bottom digivolution card or under any of your Tamers with inherited effects, that Digimon or Tamer may digivolve into a [Hybrid] trait card in the hand with the cost reduced by 2.",
+  "en": "[[T:Start of Your Main Phase]] By placing 1 [[N:Hybrid]] trait card from your hand or trash as this Digimon’s bottom digivolution card or under any of your Tamers with inherited effects, that Digimon or Tamer may digivolve into a [[N:Hybrid]] trait card in the hand with the cost reduced by 2.",
+  "tpl": null
+ },
+ {
+  "id": 150,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[Start of Your Main Phase] By returning this Tamer to the bottom of the deck, you may play 1 [Takato Matsuki] from your hand without paying the cost. After, if you don't have a Digimon, you may play 1 [Guilmon] from your trash without paying the cost.",
+  "en": "[[T:Start of Your Main Phase]] By returning this Tamer to the bottom of the deck, you may play 1 [[N:Takato Matsuki]] from your hand without paying the cost. After, if you don't have a Digimon, you may play 1 [[N:Guilmon]] from your trash without paying the cost.",
+  "tpl": null
+ },
+ {
+  "id": 151,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[Start of Your Main Phase] By trashing 1 card with [Veedramon] in its text or the [Armor Form] or [Free] trait from your hand, <Draw 1> and gain 1 memory.",
+  "en": "[[T:Start of Your Main Phase]] By trashing 1 card with [[N:Veedramon]] in its text or the [[N:Armor Form]] or [[N:Free]] trait from your hand, [[K:Draw 1]] and gain 1 memory.",
+  "tpl": null
+ },
+ {
+  "id": 152,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[Trash] [End of Your Turn] If you hand has 5 or fewer cards, 1 of your [Demon] trait Digimon may digivolve into this card.",
+  "en": "[[T:Trash]] [[T:End of Your Turn]] If you hand has 5 or fewer cards, 1 of your [[N:Demon]] trait Digimon may digivolve into this card.",
+  "tpl": null
+ },
+ {
+  "id": 153,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[When Attacking] This Digimon may digivolve into a Digimon card with the [Chronicle] trait in the hand or trash.",
+  "en": "[[T:When Attacking]] This Digimon may digivolve into a Digimon card with the [[N:Chronicle]] trait in the hand or trash.",
+  "tpl": null
+ },
+ {
+  "id": 154,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[When Attacking] [Once Per Turn] By trashing 1 [Dark Animal], [Shaman], [Undead] or [TS] trait card from your hand, delete 1 of your opponent's unsuspended level 4 or lower Digimon.",
+  "en": "[[T:When Attacking]] [[T:Once Per Turn]] By trashing 1 [[N:Dark Animal]], [[N:Shaman]], [[N:Undead]] or [[N:TS]] trait card from your hand, delete 1 of your opponent's unsuspended level 4 or lower Digimon.",
+  "tpl": null
+ },
+ {
+  "id": 155,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[When Digivolving] 1 of your opponent's Digimon gets -8000 DP until their turn ends. Then, if they have 5 or more memory, gain 2 memory.",
+  "en": "[[T:When Digivolving]] 1 of your opponent's Digimon gets -8000 DP until their turn ends. Then, if they have 5 or more memory, gain 2 memory.",
+  "tpl": null
+ },
+ {
+  "id": 156,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[When Digivolving] By trashing the top security card of 1 player with the most security cards, you may activate 1 of this Digimon's [Security] effects.",
+  "en": "[[T:When Digivolving]] By trashing the top security card of 1 player with the most security cards, you may activate 1 of this Digimon's [[T:Security]] effects.",
+  "tpl": null
+ },
+ {
+  "id": 157,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[When Digivolving] You may play or use 1 play or use cost 8 or lower [Knightmon] text card from your hand or trash without paying the cost.",
+  "en": "[[T:When Digivolving]] You may play or use 1 play or use cost 8 or lower [[N:Knightmon]] text card from your hand or trash without paying the cost.",
+  "tpl": null
+ },
+ {
+  "id": 158,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[Your Turn] [Once Per Turn] When any of your [Chronicle] trait Digimon or Tamers are played, 1 of your Digimon may attack. Then, you may activate 1 of this Digimon's [When Digivolving] effects.",
+  "en": "[[T:Your Turn]] [[T:Once Per Turn]] When any of your [[N:Chronicle]] trait Digimon or Tamers are played, 1 of your Digimon may attack. Then, you may activate 1 of this Digimon's [[T:When Digivolving]] effects.",
+  "tpl": null
+ },
+ {
+  "id": 159,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[Your Turn] [Once Per Turn] When any of your other Digimon or Tamers are played, 1 of your [Knightmon] text Digimon may gain <Rush> and <Collision> for the turn and attack.",
+  "en": "[[T:Your Turn]] [[T:Once Per Turn]] When any of your other Digimon or Tamers are played, 1 of your [[N:Knightmon]] text Digimon may gain [[K:Rush]] and [[K:Collision]] for the turn and attack.",
+  "tpl": null
+ },
+ {
+  "id": 160,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[Your Turn] [Once Per Turn] When any of your other Digimon with [Sukamon] or [Mamemon] in their names are deleted, this Digimon may digivolve into a Digimon card with [Sukamon], [Etemon] or [Mamemon] in its name in the hand with the cost reduced by 2.",
+  "en": "[[T:Your Turn]] [[T:Once Per Turn]] When any of your other Digimon with [[N:Sukamon]] or [[N:Mamemon]] in their names are deleted, this Digimon may digivolve into a Digimon card with [[N:Sukamon]], [[N:Etemon]] or [[N:Mamemon]] in its name in the hand with the cost reduced by 2.",
+  "tpl": null
+ },
+ {
+  "id": 161,
+  "kind": "desc",
+  "mode": "frag",
+  "key": "] 1 of your opponent's Digimon can't attack players until their turn ends.",
+  "en": "] 1 of your opponent's Digimon can't attack players until their turn ends.",
+  "tpl": "[{0}] 1 of your opponent's Digimon can't attack players until their turn ends."
+ },
+ {
+  "id": 162,
+  "kind": "desc",
+  "mode": "frag",
+  "key": "] 1 of your opponent's Digimon gets -7000 DP for the turn. If there are 6 or fewer total cards in both players' security stacks, instead all of their Digimon get -7000 DP for the turn.",
+  "en": "] 1 of your opponent's Digimon gets -7000 DP for the turn. If there are 6 or fewer total cards in both players' security stacks, instead all of their Digimon get -7000 DP for the turn.",
+  "tpl": "[{0}] 1 of your opponent's Digimon gets -7000 DP for the turn. If there are 6 or fewer total cards in both players' security stacks, instead all of their Digimon get -7000 DP for the turn."
+ },
+ {
+  "id": 163,
+  "kind": "desc",
+  "mode": "frag",
+  "key": "] 1 of your opponent's Digimon or Tamers can't unsuspend until their turn ends.",
+  "en": "] 1 of your opponent's Digimon or Tamers can't unsuspend until their turn ends.",
+  "tpl": "[{0}] 1 of your opponent's Digimon or Tamers can't unsuspend until their turn ends."
+ },
+ {
+  "id": 164,
+  "kind": "desc",
+  "mode": "frag",
+  "key": "] <De-Digivolve 1> 1 of your opponent's Digimon.",
+  "en": "] [[K:De-Digivolve 1]] 1 of your opponent's Digimon.",
+  "tpl": "[{0}] <De-Digivolve 1> 1 of your opponent's Digimon."
+ },
+ {
+  "id": 165,
+  "kind": "desc",
+  "mode": "frag",
+  "key": "] Reveal the top 3 cards of your deck. Add 1 card with the [X Antibody] or [Chronicle] trait among them to the hand. Return the rest to the top or bottom of the deck.",
+  "en": "] Reveal the top 3 cards of your deck. Add 1 card with the [[N:X Antibody]] or [[N:Chronicle]] trait among them to the hand. Return the rest to the top or bottom of the deck.",
+  "tpl": "[{0}] Reveal the top 3 cards of your deck. Add 1 card with the [X Antibody] or [Chronicle] trait among them to the hand. Return the rest to the top or bottom of the deck."
+ },
+ {
+  "id": 166,
+  "kind": "desc",
+  "mode": "frag",
+  "key": "] Reveal the top 3 cards of your deck. You may play 1 play cost 10 or lower Digimon card with [Mamemon] in its name or the [Mutant] trait among them without paying the cost. Trash the rest.",
+  "en": "] Reveal the top 3 cards of your deck. You may play 1 play cost 10 or lower Digimon card with [[N:Mamemon]] in its name or the [[N:Mutant]] trait among them without paying the cost. Trash the rest.",
+  "tpl": "[{0}] Reveal the top 3 cards of your deck. You may play 1 play cost 10 or lower Digimon card with [Mamemon] in its name or the [Mutant] trait among them without paying the cost. Trash the rest."
+ },
+ {
+  "id": 167,
+  "kind": "desc",
+  "mode": "frag",
+  "key": "] Reveal the top 3 cards of your deck. You may play 1 play cost 7 or lower Digimon card with [Mamemon] in its name or the [Mutant] trait among them without paying the cost. Trash the rest.",
+  "en": "] Reveal the top 3 cards of your deck. You may play 1 play cost 7 or lower Digimon card with [[N:Mamemon]] in its name or the [[N:Mutant]] trait among them without paying the cost. Trash the rest.",
+  "tpl": "[{0}] Reveal the top 3 cards of your deck. You may play 1 play cost 7 or lower Digimon card with [Mamemon] in its name or the [Mutant] trait among them without paying the cost. Trash the rest."
+ },
+ {
+  "id": 168,
+  "kind": "desc",
+  "mode": "frag",
+  "key": "] Until your opponent's turn ends, 1 of your [X Antibody] or [Chronicle] trait Digimon gains <Reboot> and <Blocker>. If during an attack, it also isn't affected by their Digimon effects and gets +5000 DP.",
+  "en": "] Until your opponent's turn ends, 1 of your [[N:X Antibody]] or [[N:Chronicle]] trait Digimon gains [[K:Reboot]] and [[K:Blocker]]. If during an attack, it also isn't affected by their Digimon effects and gets +5000 DP.",
+  "tpl": "[{0}] Until your opponent's turn ends, 1 of your [X Antibody] or [Chronicle] trait Digimon gains <Reboot> and <Blocker>. If during an attack, it also isn't affected by their Digimon effects and gets +5000 DP."
+ },
+ {
+  "id": 169,
+  "kind": "desc",
+  "mode": "frag",
+  "key": "] You may place 1 [Witchelny] text card from your hand as the bottom security card. Then, by trashing your top security card, 1 of your Digimon may attack.",
+  "en": "] You may place 1 [[N:Witchelny]] text card from your hand as the bottom security card. Then, by trashing your top security card, 1 of your Digimon may attack.",
+  "tpl": "[{0}] You may place 1 [Witchelny] text card from your hand as the bottom security card. Then, by trashing your top security card, 1 of your Digimon may attack."
+ },
+ {
+  "id": 170,
+  "kind": "desc",
+  "mode": "frag",
+  "key": "] You may play 1 [Hinukamuy] Token. (Digimon/White/6000 DP/<Alliance> <Reboot> <Blocker>) Then, until your opponent's turn ends, their Digimon effects don't affect 1 of your white Digimon.",
+  "en": "] You may play 1 [[N:Hinukamuy]] Token. (Digimon/White/6000 DP/[[K:Alliance]] [[K:Reboot]] [[K:Blocker]]) Then, until your opponent's turn ends, their Digimon effects don't affect 1 of your white Digimon.",
+  "tpl": "[{0}] You may play 1 [Hinukamuy] Token. (Digimon/White/6000 DP/<Alliance> <Reboot> <Blocker>) Then, until your opponent's turn ends, their Digimon effects don't affect 1 of your white Digimon."
+ },
+ {
+  "id": 171,
+  "kind": "desc",
+  "mode": "frag",
+  "key": "] You may play or use 1 card with [Knightmon] in its text and a play or use cost of 4 or less from your hand without paying the cost.",
+  "en": "] You may play or use 1 card with [[N:Knightmon]] in its text and a play or use cost of 4 or less from your hand without paying the cost.",
+  "tpl": "[{0}] You may play or use 1 card with [Knightmon] in its text and a play or use cost of 4 or less from your hand without paying the cost."
+ },
+ {
+  "id": 172,
+  "kind": "desc",
+  "mode": "frag",
+  "key": "] You may play up to 2 Digimon cards with [Chuumon], [Sukamon] or [Etemon] in their names and up to 6 total play cost from your hand or trash without paying the costs. By returning 10 such cards from your trash to the bottom of the deck, add 6 to the play cost maximum.",
+  "en": "] You may play up to 2 Digimon cards with [[N:Chuumon]], [[N:Sukamon]] or [[N:Etemon]] in their names and up to 6 total play cost from your hand or trash without paying the costs. By returning 10 such cards from your trash to the bottom of the deck, add 6 to the play cost maximum.",
+  "tpl": "[{0}] You may play up to 2 Digimon cards with [Chuumon], [Sukamon] or [Etemon] in their names and up to 6 total play cost from your hand or trash without paying the costs. By returning 10 such cards from your trash to the bottom of the deck, add 6 to the play cost maximum."
+ },
+ {
+  "id": 173,
+  "kind": "desc",
+  "mode": "frag",
+  "key": "] You may return up to 3 Digimon cards with [Mamemon] in their texts from your trash to the top of the deck. Then, delete 1 of your opponent's Digimon with a play cost of 3 or less. For each one this effect returned, add 1 to this effect's play cost maximum.",
+  "en": "] You may return up to 3 Digimon cards with [[N:Mamemon]] in their texts from your trash to the top of the deck. Then, delete 1 of your opponent's Digimon with a play cost of 3 or less. For each one this effect returned, add 1 to this effect's play cost maximum.",
+  "tpl": "[{0}] You may return up to 3 Digimon cards with [Mamemon] in their texts from your trash to the top of the deck. Then, delete 1 of your opponent's Digimon with a play cost of 3 or less. For each one this effect returned, add 1 to this effect's play cost maximum."
+ },
+ {
+  "id": 174,
+  "kind": "desc",
+  "mode": "frag",
+  "key": "] You may suspend 1 Digimon. Then, you may return 1 of your opponent's lowest DP Digimon to the bottom of the deck.",
+  "en": "] You may suspend 1 Digimon. Then, you may return 1 of your opponent's lowest DP Digimon to the bottom of the deck.",
+  "tpl": "[{0}] You may suspend 1 Digimon. Then, you may return 1 of your opponent's lowest DP Digimon to the bottom of the deck."
+ },
+ {
+  "id": 175,
+  "kind": "desc",
+  "mode": "frag",
+  "key": "] [Once Per Turn] By trashing 1 card in your hand, 1 of your [Demon], [Shaman] or [Undead] trait Digimon gains <Blocker> and <Retaliation> until your opponent’s turn ends.",
+  "en": "] [[T:Once Per Turn]] By trashing 1 card in your hand, 1 of your [[N:Demon]], [[N:Shaman]] or [[N:Undead]] trait Digimon gains [[K:Blocker]] and [[K:Retaliation]] until your opponent’s turn ends.",
+  "tpl": "[{0}] [Once Per Turn] By trashing 1 card in your hand, 1 of your [Demon], [Shaman] or [Undead] trait Digimon gains <Blocker> and <Retaliation> until your opponent’s turn ends."
+ },
+ {
+  "id": 176,
+  "kind": "desc",
+  "mode": "frag",
+  "key": "] [Once Per Turn] Until your opponent's turn ends, 1 of your Digimon gains <Reboot> and <Blocker>, and their <De-Digivolve> effects don't affect it.",
+  "en": "] [[T:Once Per Turn]] Until your opponent's turn ends, 1 of your Digimon gains [[K:Reboot]] and [[K:Blocker]], and their [[K:De-Digivolve]] effects don't affect it.",
+  "tpl": "[{0}] [Once Per Turn] Until your opponent's turn ends, 1 of your Digimon gains <Reboot> and <Blocker>, and their <De-Digivolve> effects don't affect it."
+ },
+ {
+  "id": 177,
+  "kind": "desc",
+  "mode": "frag",
+  "key": "] [Once Per Turn] You may place 1 of each player's Digimon as the top security cards.",
+  "en": "] [[T:Once Per Turn]] You may place 1 of each player's Digimon as the top security cards.",
+  "tpl": "[{0}] [Once Per Turn] You may place 1 of each player's Digimon as the top security cards."
+ },
+ {
+  "id": 178,
+  "kind": "desc",
+  "mode": "frag",
+  "key": "] [Once Per Turn] You may play 1 play cost 4 or lower Digimon card with [Beast], [Animal] or [Sovereign], other than [Sea Animal], in any of its traits from your hand without paying the cost.",
+  "en": "] [[T:Once Per Turn]] You may play 1 play cost 4 or lower Digimon card with [[N:Beast]], [[N:Animal]] or [[N:Sovereign]], other than [[N:Sea Animal]], in any of its traits from your hand without paying the cost.",
+  "tpl": "[{0}] [Once Per Turn] You may play 1 play cost 4 or lower Digimon card with [Beast], [Animal] or [Sovereign], other than [Sea Animal], in any of its traits from your hand without paying the cost."
+ },
+ {
+  "id": 179,
+  "kind": "desc",
+  "mode": "frag",
+  "key": "] [Once Per Turn] You may play or use 1 [Mammal], [Beast], [Beastkin] or [Royal Knight] trait card from your hand with the cost reduced by 4. For each suspended Digimon, further reduce it by 1.",
+  "en": "] [[T:Once Per Turn]] You may play or use 1 [[N:Mammal]], [[N:Beast]], [[N:Beastkin]] or [[N:Royal Knight]] trait card from your hand with the cost reduced by 4. For each suspended Digimon, further reduce it by 1.",
+  "tpl": "[{0}] [Once Per Turn] You may play or use 1 [Mammal], [Beast], [Beastkin] or [Royal Knight] trait card from your hand with the cost reduced by 4. For each suspended Digimon, further reduce it by 1."
+ },
+ {
+  "id": 180,
+  "kind": "desc",
+  "mode": "frag",
+  "key": "] [Once Per Turn] trash your top security card and this Digimon gets +10000 DP until your opponent's turn ends. Then, if you have 3 or fewer security cards, trash their top security card.",
+  "en": "] [[T:Once Per Turn]] trash your top security card and this Digimon gets +10000 DP until your opponent's turn ends. Then, if you have 3 or fewer security cards, trash their top security card.",
+  "tpl": "[{0}] [Once Per Turn] trash your top security card and this Digimon gets +10000 DP until your opponent's turn ends. Then, if you have 3 or fewer security cards, trash their top security card."
+ },
+ {
+  "id": 181,
+  "kind": "desc",
+  "mode": "whole",
+  "key": "[End of Your Turn] [Once Per Turn] 1 of your [Free] or [Royal Knight] trait Digimon may unsuspend.\r\n[Assembly -2] [Veemon]",
+  "en": "[[T:End of Your Turn]] [[T:Once Per Turn]] 1 of your [[N:Free]] or [[N:Royal Knight]] trait Digimon may unsuspend.\r\n[Assembly -2] [Veemon]",
+  "tpl": null
+ },
+ {
+  "id": 182,
+  "kind": "desc",
+  "mode": "frag",
+  "key": "] 1 of your Digimon may attack without suspending. Then, for every 2 of your Digimon and Tamers' colors, activate 1 effect below:\r\n・This Digimon may battle 1 of your opponent's Digimon.\r\n・By returning 5 cards from your opponent's trash to the bottom of the deck, <Recovery +1>",
+  "en": "] 1 of your Digimon may attack without suspending. Then, for every 2 of your Digimon and Tamers' colors, activate 1 effect below:\r\n・This Digimon may battle 1 of your opponent's Digimon.\r\n・By returning 5 cards from your opponent's trash to the bottom of the deck, [[K:Recovery +1]]",
+  "tpl": null
+ }
+]

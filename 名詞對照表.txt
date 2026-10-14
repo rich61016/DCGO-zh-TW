@@ -1,0 +1,826 @@
+DCGO 繁體中文化 名詞對照表(英文 → 遊戲內顯示的中文)
+
+說明:卡名與特徵是從你的簡體中文官方卡圖用文字辨識(OCR)取得,再轉成繁體(台灣用字),並經過人工/程式比對;
+      與台灣官方譯名可能略有出入,若發現想改的,告訴我即可統一修改。
+
+■ 一、時機標籤(效果說明開頭的方括號)
+  [On Play]  →  [登場時]
+  [When Digivolving]  →  [進化時]
+  [When Attacking]  →  [攻擊時]
+  [On Deletion]  →  [消滅時]
+  [All Turns]  →  [雙方的回合]
+  [Your Turn]  →  [我方的回合]
+  [Opponent's Turn]  →  [對方的回合]
+  [Once Per Turn]  →  [每回合1次]
+  [Twice Per Turn]  →  [每回合2次]
+  [Main]  →  [主要]
+  [Security]  →  [安防]
+  [Hand]  →  [手牌]
+  [Counter]  →  [反擊]
+  [End of Attack]  →  [攻擊結束時]
+  [Start of Your Main Phase]  →  [我方的主要階段開始時]
+  [Start of Opponent's Main Phase]  →  [對方的主要階段開始時]
+  [Start of Your Turn]  →  [我方的回合開始時]
+  [Start of Opponent's Turn]  →  [對方的回合開始時]
+  [End of Your Turn]  →  [我方的回合結束時]
+  [End of Opponent's Turn]  →  [對方的回合結束時]
+  [End of All Turns]  →  [雙方的回合結束時]
+  [When Linking]  →  [連結時]
+  [When Moving]  →  [移動時]
+  [Breeding]  →  [育成]
+  [Trash]  →  [廢棄區]
+  [Digivolve]  →  [進化]
+  [Delay]  →  [延遲]
+  [Link]  →  [連結]
+  [De-Digivolve]  →  [退化]
+  [Start of Main Phase]  →  [主要階段開始時]
+  [End of Turn]  →  [回合結束時]
+  [Rule]  →  [規則]
+
+■ 二、關鍵字效果
+  <Blocker>  →  《阻擋者》
+  <Rush>  →  《速攻》
+  <Piercing>  →  《貫通》
+  <Jamming>  →  《干擾》
+  <Reboot>  →  《重啟》
+  <Retaliation>  →  《同歸於盡》
+  <Raid>  →  《突進》
+  <Alliance>  →  《聯協》
+  <Barrier>  →  《屏障》
+  <Delay>  →  《延遲》
+  <Save>  →  《保存》
+  <Collision>  →  《衝突》
+  <Fortitude>  →  《不屈》
+  <Evade>  →  《回避》
+  <Vortex>  →  《旋風》
+  <Progress>  →  《進程》
+  <Execute>  →  《處決》
+  <Overclock>  →  《超頻》
+  <Ascension>  →  《升天》
+  <Partition>  →  《分裂》
+  <Training>  →  《訓練》
+  <Guard>  →  《守護》
+  <Engage>  →  《急襲》
+  <Scapegoat>  →  《替罪》
+  <Iceclad>  →  《冰裝》
+  <Armor Purge>  →  《裝甲解除》
+  <Decode>  →  《解碼》
+  <Blast Digivolve>  →  《突風進化》
+  <Blast Dna Digivolve>  →  《突風合步進化》
+  <Blitz>  →  《進擊 Blitz》
+  <Mind Link>  →  《意識連結 Mind Link》
+  <Digisorption>  →  《吸收進化 Digisorption》
+  <Digi-Burst>  →  《數碼爆裂 Digi-Burst》
+  <Draw N>  →  抽 N 張卡片
+  <De-Digivolve N>  →  退化 N
+  <Recovery +N (Deck)>  →  恢復+N《牌組》
+  <Security Attack +N>  →  《安防攻擊+N》
+  <Decoy (Red/Black)>  →  《誘餌《紅/黑》》
+  <Material Save N>  →  《素材保存 N》
+  (進擊 Blitz、意識連結 Mind Link、吸收進化 Digisorption、數碼爆裂 Digi-Burst 因程式需要判斷英文字樣,中文旁邊保留英文)
+
+■ 三、規則用語
+  Digimon  →  數碼寶貝
+  Tamer  →  馴獸師
+  Option (card)  →  選項(卡片:選項卡)
+  Digi-Egg  →  數碼蛋
+  card / cards  →  卡片;「N 張卡片」
+  Digimon card  →  數碼寶貝卡片
+  this Digimon / this card  →  此數碼寶貝 / 此卡片
+  your / your opponent's  →  我方的 / 對方的(說明文字用「我方/對方」;提示句裡的 opponent 可用「對手」)
+  1 of your opponent's Digimon  →  對方的 1 隻數碼寶貝
+  all of your Digimon  →  我方所有的數碼寶貝
+  security stack / security  →  安防區 / 安防
+  security card  →  安防卡片;top/bottom security card = 安防區最上方/最下方的卡片
+  hand  →  手牌
+  trash (zone)  →  廢棄區
+  trash 1 card from hand  →  丟棄 1 張手牌
+  trash the top 3 cards of your deck  →  將牌組最上方的 3 張卡片放入廢棄區
+  deck  →  牌組(top/bottom of the deck = 牌組最上方/最下方)
+  battle area  →  戰鬥區
+  breeding area  →  育成區
+  hatch  →  孵化
+  memory / gain 1 memory / lose 2 memory  →  內存值 / 內存值+1 / 內存值-2
+  play cost / digivolution cost / use cost  →  登場費用 / 進化費用 / 使用費用
+  play (Digimon/Tamer) / use (Option)  →  登場 / 使用
+  play without paying the cost  →  不支付費用登場(Option:不支付費用使用)
+  digivolve (into)  →  進化(為)
+  digivolution cards  →  進化源
+  inherited effect  →  進化源效果
+  bottom/top digivolution card  →  進化源最下方/最上方的卡片
+  delete / deleted  →  消滅 / 被消滅
+  suspend / unsuspend  →  轉為休息狀態 / 轉為活躍狀態
+  suspended / unsuspended Digimon  →  休息狀態的 / 活躍狀態的數碼寶貝
+  return to hand  →  放回手牌
+  return to the bottom/top of the deck  →  放回牌組最下方/最上方
+  add to hand  →  加入手牌
+  reveal  →  翻開
+  draw  →  抽
+  place  →  放置
+  link (Link mechanic)  →  連結
+  token  →  衍生物
+  level N or lower / higher  →  等級不高於 Lv.N / 等級不低於 Lv.N
+  play cost N or lower  →  登場費用不高於 N
+  N DP or less  →  DP 不高於 N
+  with [X] in its name  →  名稱中包含[X]
+  with the [X] trait / [X] trait  →  擁有[X]特徵
+  with [X] in its text  →  記述有[X]
+  may  →  可以
+  Then,  →  此後，
+  until the end of your opponent's turn / until their turn ends  →  直到對方的回合結束為止
+  for the turn  →  直到回合結束為止
+  until the end of your turn  →  直到我方的回合結束為止
+  can't attack / can't block  →  無法攻擊 / 無法阻擋
+  isn't affected by …  →  不受…影響
+  DP  →  DP(不翻)
+  Lv.  →  Lv.(不翻)
+  battle  →  對戰
+  opponent  →  對方(說明文字) / 對手(提示句)
+  turn  →  回合
+  main phase  →  主要階段
+  breeding phase  →  育成階段
+  for each  →  每有 1 …
+  if / when / while  →  若 / 當…時 / …的期間
+  instead  →  改為 / 取代
+  other than  →  以外的
+  up to N  →  最多 N
+  at least / N or more  →  N 以上 / N 張或更多
+  N or fewer  →  不多於 N
+
+■ 四、卡名與特徵(共 676 項,依英文字母排序;遊戲內以「」框起)
+  Abadin Electronics  →  AE公司
+  Abbadomon  →  亞巴頓獸
+  Abbadomon Core  →  亞巴頓獸核心
+  ACCEL  →  ACCEL
+  ADR-01 Jeri  →  ADR-01=樹莉
+  ADR-02 Searcher  →  ADR-02=搜索者
+  ADVENTURE  →  大冒險
+  Adventure  →  大冒險
+  Aegiochusmon  →  埃癸奧都斯獸
+  Aegiomon  →  埃癸奧獸
+  Aegiouchusmon  →  埃癸奧都斯獸
+  Agumon  →  亞古獸
+  Agumon - Bond of Bravery  →  亞古獸-勇氣之紐帶
+  Agunimon  →  火神獸
+  Ai & Mako  →  愛＆誠
+  Airu Suzaki  →  洲崎愛瑠
+  Akihiro Kurata  →  倉田明宏
+  Alphamon  →  阿爾法獸
+  Alphamon: Ouryuken  →  阿爾法獸：王龍劍
+  Altea  →  阿爾迪亞
+  Amon of Crimson Flame  →  紅炎之阿獸
+  Analogman  →  類比人
+  Ancient Insect  →  古代昆蟲型
+  AncientGarurumon  →  古代加魯魯獸
+  AncientGreymon  →  古代暴龍獸
+  Angel  →  天使型
+  Angemon  →  天使獸
+  Angewomon  →  天女獸
+  Angoramon  →  安哥拉獸
+  Animal  →  獸
+  Ankylomon  →  甲龍獸
+  Apocalymon  →  啟示錄獸
+  Apollomon  →  阿波羅獸
+  App Driver  →  應用驅動持有者
+  Appmon  →  應用獸
+  appmon  →  應用獸
+  Aqua  →  水棲
+  Aquatic  →  水棲型
+  Aquilamon  →  天鷹獸
+  Arata Sanada  →  真田新
+  Archangel  →  大天使型
+  Argomon  →  阿耳戈獸
+  Arisa Kinosaki  →  城之崎有紗
+  Armadillomon  →  犰狳獸
+  Armor Form  →  裝甲體
+  Arukenimon  →  阿刺克涅獸
+  Asuna Shiroki  →  城木明日奈
+  Atho, René & Por  →  阿多＆勒內＆波爾
+  AtlurBallistamon  →  阿特拉弩炮獸
+  Authority  →  能天使型
+  Avian  →  鳥型
+  Awakening  →  覺醒
+  Azulongmon  →  青龍獸
+  Baalmon  →  巴力獸
+  Bagra Army  →  巴格拉軍
+  Bakemon  →  鬼怪獸
+  Ballistamon  →  弩炮獸
+  Bancho  →  番長
+  BaoHuckmon  →  刃王哈克獸
+  Barbamon  →  巴爾巴獸
+  Barbamon (X Antibody)  →  巴爾巴獸X抗體
+  Beast  →  獸型
+  Beast Dragon  →  獸龍型
+  Beastkin  →  獸人型
+  BEATBREAK  →  覺醒節拍
+  Beelzemon  →  別西卜獸
+  Beelzemon (X Antibody)  →  別西卜獸X抗體
+  Beelzemon Blast Mode  →  別西卜獸：疾風形態
+  Beetlemon  →  電光獸
+  Belphemon  →  貝爾菲獸
+  Belphemon (X Antibody)  →  貝爾菲獸X抗體
+  Belphemon: Rage Mode  →  貝爾菲獸：憤怒形態
+  Belphemon: Sleep Mode  →  貝爾菲獸：沉睡形態
+  BigUkkomon  →  巨烏科獸
+  Bird  →  雛鳥型
+  Bird Dragon  →  鳥龍型
+  Biyomon  →  比丘獸
+  Black  →  黑色
+  BlackWarGreymon  →  黑暗戰鬥暴龍獸
+  Blimpmon  →  飛艇獸
+  Blue Flare  →  藍色閃耀
+  Bokomon  →  波高獸
+  Boss  →  番長
+  Breakdramon  →  破壞龍獸
+  BryweLudramon  →  布利維路德龍獸
+  BurningGreymon  →  炎龍獸
+  Callismon  →  卡利斯獸
+  Calumon  →  古樂獸
+  Cannonweissmon  →  卡諾維斯獸
+  Canoweissmon  →  卡諾維斯獸
+  Ceratopsian  →  角龍型
+  Cerberusmon  →  刻耳柏洛獸
+  Ceresmon  →  刻瑞斯獸
+  ChaosGallantmon  →  混沌公爵獸
+  Chaosmon  →  混沌獸
+  Cherub  →  智天使型
+  Cherubimon  →  智天使獸
+  Chessmon  →  棋獸
+  Cho - Hakkaimon  →  豬八戒獸
+  Cho-Hakkaimon  →  豬八戒獸
+  Chronicle  →  Chronicle
+  Chronomon  →  時空獸
+  Chronomon: Destroy Mode  →  時空獸：毀滅形態
+  Chuumon  →  吱吱獸
+  Close  →  克洛茲
+  Cody Hida  →  火田伊織
+  Commandramon  →  突擊龍獸
+  Composite  →  合成型
+  Cool Boy  →  炫酷少年
+  Coredramon  →  核龍獸
+  Creation  →  創造
+  Creepymon  →  究極魔獸
+  Creepymon (X Antibody)  →  究極魔獸X抗體
+  Crescemon  →  新月獸
+  CresGarurumon  →  偃月加魯魯獸
+  Crustacean  →  甲殼類型
+  CS  →  CS
+  Cyberdramon  →  電子龍獸
+  Cyborg  →  改造型
+  D-Brigade  →  D-旅團
+  D-Reaper  →  數碼死神
+  Damemon  →  不行獸
+  Dan Yuki  →  結城丹
+  DanDevimon  →  但丁惡魔獸
+  Dantemon  →  但丁獸
+  Darcmon  →  貞德獸
+  Dark Animal  →  魔獸型
+  Dark Dragon  →  魔龍型
+  Dark Knight  →  黑暗騎士型
+  Dark Master  →  黑暗四天王
+  Dark Masters  →  黑暗四天王
+  DarkKnightmon  →  黑暗騎士獸
+  DarkKnightmon (X Antibody)  →  黑暗騎士獸X抗體
+  DarkTyrannomon  →  黑暗巨龍獸
+  Data  →  數據種
+  DATA SQUAD  →  拯救隊
+  Davis Motomiya  →  本宮大輔
+  DeadlyAxemon  →  致命巨斧獸
+  DeathX  →  死X
+  DeathXmon  →  死X獸
+  Deckerdramon  →  甲板龍獸
+  Deep Savers  →  深海救星
+  Demon  →  鬼人型
+  Demon Lord  →  魔王型
+  Destromon  →  殲滅獸
+  Deva  →  十二神將
+  Device  →  裝置
+  Devimon  →  惡魔獸
+  Dex  →  死X
+  DexDorugamon  →  死X多路加獸
+  DexDorugoramon  →  死X多路戰龍獸
+  DexDoruGreymon  →  死X多路暴龍獸
+  Diaboromon  →  超惡魔獸
+  Dianamon  →  狄安娜獸
+  Digi  →  數碼部隊
+  DigiPolice  →  數碼部隊
+  Digipolice  →  數碼部隊
+  Dimetromon  →  異齒長棘獸
+  Dinobeemon  →  恐蜂獸
+  Dinosaur  →  恐龍型
+  DM  →  DM
+  Dobermon  →  杜賓犬獸
+  Dominimon  →  主天使獸
+  Doomsday Clock  →  末日之鐘
+  Dorugamon  →  多路加獸
+  Dorugoramon  →  多路戰龍獸
+  DoruGreymon  →  多路暴龍獸
+  Dorulumon  →  多魯路獸
+  Dorumon  →  多路獸
+  Dracomon  →  龍仔獸
+  Dragon  →  龍
+  Dragonkin  →  龍人型
+  Dramon  →  龍獸
+  DS  →  DS
+  Durandamon  →  杜蘭達獸
+  Dynasmon  →  君主獸
+  Earth Dragon  →  地龍型
+  Eater  →  侵食者
+  Eater (Species Form)  →  侵食者（原種型態）
+  Eater Adam  →  侵食者亞當
+  Eater Eve  →  侵食者夏娃
+  Eiji Nagasumi  →  永住瑛士
+  Elecmon  →  艾力獸
+  Elizamon  →  皇后襟蜥獸
+  EmperorGreymon  →  愷撒暴龍獸
+  Entertainment  →  娛樂
+  Eosmon  →  厄俄斯獸
+  Eri Karan  →  花嵐惠理
+  Erika Mishima  →  御島艾莉卡
+  Etemon  →  猿猴獸
+  Evil  →  小惡魔型
+  Evil Dragon  →  邪龍型
+  EX2-039 Impmon  →  EX2-039小妖獸
+  Examon  →  艾可薩獸
+  ExMaquinamon  →  EX瑪機那獸
+  ExVeemon  →  XV獸
+  Eyesmon: Scatter Mode  →  多目獸：分散形態
+  Fairy  →  妖精型
+  Fake Agumon Expert  →  偽亞古獸博士
+  Falcomon  →  獵鷹獸
+  Fallen Angel  →  墮天使型
+  Familiar  →  使魔
+  Fanglongmon  →  黃龍獸
+  Fenriloogamon  →  芬里爾魔狼獸
+  Flame  →  火炎型
+  Flamemon  →  野火獸
+  Flaremon  →  耀獅獸
+  Four Great Dragons  →  四大龍
+  Four Sovereigns  →  四聖獸
+  Free  →  自由
+  Fujinmon  →  風神獸
+  Fujitsumon  →  藤壺獸
+  Fusionize  →  合體吸收
+  Gabumon  →  加布獸
+  Gabumon - Bond of Friendship  →  加布獸-友情之紐帶
+  Gaiomon  →  凱王獸
+  Galacticmon  →  諸神黃昏獸
+  Galaxy  →  銀河型
+  Galemon  →  強風獸
+  Gallantmon  →  公爵獸
+  Game  →  遊戲
+  Gammamon  →  伽馬獸
+  Gankoomon  →  頑固獸
+  Gao  →  加奧
+  GaoGamon  →  加奧加獸
+  Gaogamon  →  加奧加獸
+  Gaomon  →  加奧獸
+  Gaossmon  →  氣龍獸
+  Gargomon  →  加魯哥獸
+  Garudamon  →  伽樓達獸
+  Garurumon  →  加魯魯獸
+  Gate of Deadly Sins  →  大罪之門
+  Gatomon  →  迪路獸
+  Gazimon  →  加支獸
+  General  →  指揮官
+  Gesomon  →  墨魚獸
+  Ghost  →  幽靈型
+  Ghostmon  →  幽靈獸
+  Giant Slayer  →  巨神兵器
+  Ginkakumon  →  銀角獸
+  Ginryumon  →  銀龍獸
+  Gizamon  →  鋸齒獸
+  Gizmon  →  基茲獸
+  Gizmon: AT  →  基茲獸AT
+  Gizmon: XT  →  基茲獸XT
+  Glowing Dawn  →  光輝黎明
+  God Beast  →  神獸型
+  God Flame  →  神之烈焰
+  Gokuumon  →  悟空獸
+  Gomamon  →  哥瑪獸
+  GraceNovamon  →  優雅新星獸
+  Grademon  →  等級獸
+  GranKuwagamon  →  巨大古加獸
+  GreyKnightsmon  →  灰騎士獸
+  Greymon  →  暴龍獸
+  GroundLocomon  →  大火車頭獸
+  Groundramon  →  地龍獸
+  Growlmon  →  古拉獸
+  Guilmon  →  基爾獸
+  Gulfmon  →  深淵獸
+  Gyuukimon  →  牛鬼獸
+  Hacker Judge  →  黑客·審判
+  Haru Shinkai  →  新海春
+  Hawkmon  →  麻鷹獸
+  Henry Wong  →  李健良
+  HerculesKabuterimon  →  力神比多獸
+  Hero  →  HERO
+  Hexeblaumon  →  冰空領主獸
+  Hina Kurihara  →  栗原陽菜
+  Hinukamuy  →  火神威
+  HippoGryphonmon  →  駿鷹獸
+  Hiro Amanokawa  →  天河宙
+  Hiroko Sagisaka  →  鷺坂弘子
+  Hisyaryumon  →  飛車龍獸
+  Holy Angel  →  聖天使型
+  Holy Beast  →  聖獸型
+  Holy Dragon  →  聖龍型
+  Holy Warrior  →  聖騎士型
+  Huckmon  →  哈克獸
+  Hudie  →  Hudie
+  Hudiemon  →  胡蝶獸
+  Hunter  →  獵人
+  Hybrid  →  混合體
+  Ice-Snow  →  冰雪型
+  Iliad  →  伊利亞斯
+  Imperialdramon  →  帝皇龍甲獸
+  Imperialdramon: Dragon Mode  →  帝皇龍甲獸：龍形態
+  Imperialdramon: Fighter Mode  →  帝皇龍甲獸：戰士形態
+  Impmon  →  小妖獸
+  Infermon  →  地獄使者獸
+  Insect  →  昆蟲型
+  Insectoid  →  昆蟲型
+  Invincible  →  無敵
+  Invincible (App Name)  →  無敵
+  Invisimon  →  隱形突襲獸
+  Izzy Izumi  →  泉光子郎
+  J.P. Shibayama  →  柴山純平
+  JaegerDorulumon  →  獵兵多魯路獸
+  Jellymon  →  潔莉獸
+  Jesmon  →  傑斯獸
+  Jesmon GX  →  傑斯獸GX
+  Jijimon  →  公公獸
+  Jimmy KEN  →  Jimmy KEN
+  Joe Kido  →  城戶丈
+  Junomon  →  朱諾獸
+  Jupitermon  →  朱庇特獸
+  Justimon  →  正義獸
+  Justimon: Accel Arm  →  正義獸：加速武裝
+  Justimon: Critical Arm  →  正義獸：臨界武裝
+  KaiserLeomon  →  愷撒獅子獸
+  Kanan Yuki  →  結城卡娜
+  Kari Kamiya  →  八神光
+  Kazemon  →  仙女獸
+  Kazuchimon  →  建御雷獸
+  Kazuki & Itsuki  →  一輝＆一希
+  Keenan Crier  →  鬱人
+  Ken Ichijoji  →  一乘寺賢
+  KendoGarurumon  →  加魯姆獸
+  Kentaurosmon  →  斯雷普獸
+  Kimeramon  →  奇美拉獸
+  King Drasil  →  世界樹
+  King Drasil_7D6  →  世界樹_7D6
+  KingChessmon  →  王棋獸
+  Kinkakumon  →  金角獸
+  Kiriha Aonuma  →  蒼沼切羽
+  Kiyoshiro Higashimitarai  →  東御手洗清司郎
+  Knightmon  →  騎士獸
+  Knightsmon  →  騎士獸
+  KoHagurumon  →  小齒輪獸
+  Koichi Kimura  →  木村輝一
+  Koji Minamoto  →  源輝二
+  Korikakumon  →  暴雪獸
+  Koromon  →  滾球獸
+  Kosuke Kisakata  →  象瀉講介
+  Kota Domoto  →  堂本光太
+  Kotenken  →  哮天犬
+  Kristy Damon  →  大門知香
+  Kudamon  →  管狐獸
+  Kumamon  →  冰熊獸
+  Kyoko Kuremi  →  暮海杏子
+  Kyubimon  →  九尾獸
+  Labramon  →  拉布拉獸
+  LadyDevimon  →  女惡魔獸
+  Lalamon  →  拉拉獸
+  Landramon  →  沙地龍獸
+  Larva  →  幼蟲型
+  Legend-Arms  →  Legend-Arms
+  Leomon  →  獅子獸
+  Leon Alexander  →  列昂·亞歷山大
+  Leopardmon  →  芳香獸
+  Leopardmon: Leopard Mode  →  芳香獸：豹式形態
+  Leviamon  →  利維亞獸
+  Leviamon (X Antibody)  →  利維亞獸X抗體
+  Leviathan  →  利維坦
+  LIBERATOR  →  界放者
+  Liberator  →  界放者
+  Life  →  生活
+  Light Fang  →  光之牙
+  Lilamon  →  丁香獸
+  Lilithmon  →  莉莉絲獸
+  Lilithmon (X Antibody)  →  莉莉絲獸X抗體
+  Lillymon  →  花仙獸
+  Lobomon  →  野狼獸
+  Loogamon  →  小狼獸
+  Lopmon  →  垂耳兔獸
+  LordKnightmon  →  領主騎士獸
+  Loweemon  →  黑獅獸
+  Lucemon  →  光明獸
+  lucemon  →  光明獸
+  Lucemon (X Antibody)  →  光明獸X抗體
+  Lucemon: Chaos Mode  →  光明獸：墮落形態
+  Lucemon: Larva  →  光明獸：幼蟲
+  Lucemon: Satan Mode  →  光明獸：撒旦形態
+  MachGaogamon  →  音速加奧加獸
+  Machine  →  機械型
+  Machine Dragon  →  機龍型
+  Machinedramon  →  無限龍獸
+  Magnadramon  →  聖龍獸
+  MagnaGarurumon  →  盔甲加魯魯獸
+  Magnamon  →  金甲龍獸
+  Magnamon (X-Antibody)  →  金甲龍獸X抗體
+  MailBirdramon  →  鎧甲鳥龍獸
+  MaloMyotismon  →  貝利亞吸血魔獸
+  Mamemon  →  豆豆獸
+  Mammal  →  哺乳類型
+  Maquinamon  →  瑪機那獸
+  Marcus Damon  →  大門大
+  MarineAngemon  →  海天使獸
+  Marsmon  →  瑪爾斯獸
+  Marvin Jackson  →  馬文傑克遜
+  Matt Ishida  →  石田大和
+  ME  →  ME
+  Me  →  ME
+  Mega  →  究極體
+  MegaGargomon  →  聖加魯哥獸
+  MegaSeadramon  →  百萬海龍獸
+  Megidramon  →  滅世龍獸
+  Menoa Bellucci  →  梅諾瓦·貝盧奇
+  Mervamon  →  梅爾瓦獸
+  MetalGarurumon  →  鋼鐵加魯魯獸
+  MetalGreymon  →  機械暴龍獸
+  MetalKabuterimon  →  雷光獸
+  MetalSeadramon  →  金屬海龍獸
+  MetalTyrannomon  →  金屬巨龍獸
+  Millenniummon  →  千年獸
+  Mimi Tachikawa  →  太刀川美美
+  Mineral  →  礦物型
+  Minervamon  →  密涅瓦獸
+  MirageGaogamon  →  幻影加奧加獸
+  Mirai Kinosaki  →  城之崎觀來
+  Mirei Mikagura  →  御神樂美麗
+  Mitamamon  →  御魂獸
+  Mollusk  →  軟體型
+  Monitamon  →  顯示屏獸
+  Monzaemon  →  熊仔獸
+  Morphomon  →  閃蝶獸
+  Mother D-Reaper  →  母型數碼死神
+  Mother Eater  →  侵食者母體
+  Muchomon  →  五彩獸
+  Mummymon  →  木乃伊獸
+  Murmukusmon  →  毛莫獸
+  Mutant  →  突然變異型
+  Myotismon  →  吸血魔獸
+  Mythical Beast  →  幻獸型
+  Nanimon  →  什麼獸
+  Nature Spirits  →  自然靈魂
+  Navi  →  導航
+  Negamon  →  負面獸
+  Nene Amano  →  天野音音
+  Neptunemon  →  尼普頓獸
+  Night Claw  →  夜之爪
+  Nightmare Soldiers  →  噩夢軍團
+  Nokia Shiramine  →  白峰乃樹愛
+  NSo  →  NSo
+  NSp  →  NSp
+  Numemon  →  鼻涕獸
+  Ogudomon  →  奧古杜獸
+  Okuwamon  →  大古加獸
+  Olympos XII  →  奧林匹斯十二神族
+  Omekamon  →  奧米卡獸
+  Omnimon  →  奧米加獸
+  Omnimon (X Antibody)  →  奧米加獸X抗體
+  Omnimon Alter-S  →  奧米加獸Alter-S
+  OmniShoutmon  →  奧米加高吼獸
+  On Plays  →  登場時
+  Onmyōjutsu  →  陰陽術
+  Open  →  解放
+  Ornismon  →  奧尼斯獸
+  Owen Dreadnought  →  歐文·德雷德諾特
+  Paildramon  →  機甲龍獸
+  Paishu  →  白鼠
+  Paledramon  →  蒼龍獸
+  Palmon  →  巴魯獸
+  Parasitemon  →  寄生獸
+  Patamon  →  巴達獸
+  PawnChessmon  →  兵棋獸
+  Petrification  →  石化
+  Petrification Token  →  石化衍生物
+  Pickmons  →  撥片獸S
+  Piedmon  →  小丑皇
+  Pipe Fox  →  管狐
+  Piranimon  →  水虎魚獸
+  Plant  →  植物型
+  PlatinumNumemon  →  白金鼻涕獸
+  Plesiomon  →  蛇頸龍獸
+  Plesiosaur  →  長頸龍型
+  Plug - In  →  插件
+  Plug-In  →  插件
+  Plutomon  →  普路託獸
+  Potamon  →  薯條獸
+  ProtoGizmon  →  原型基茲獸
+  Proximamon  →  比鄰星獸
+  Pteromon  →  飛翼獸
+  Pulsemon  →  脈衝獸
+  Puppet  →  玩偶型
+  puppet  →  玩偶型
+  Puppetmon  →  木偶獸
+  Quartzmon  →  晶界獸
+  RagnaLoardmon  →  諸神之主獸
+  Ragnarok Cannon  →  諸神黃昏砲
+  Raidenmon  →  雷電獸
+  Raijinmon  →  雷神獸
+  Rapidmon  →  拉比獸
+  RaptorSparrowmon  →  猛禽麻雀獸
+  Raremon  →  爛泥獸
+  Rasenmon  →  螺旋獸
+  Ravemon  →  波鴉獸
+  Red  →  紅色
+  Regulusmon  →  軒轅十四獸
+  Rei Katsura  →  桂零
+  Reload Plug-In Q  →  充能插件Q
+  Ren Tobari  →  戶張蓮
+  Renamon  →  狐狸獸
+  Reptile  →  爬蟲類型
+  Rhythm  →  莉茲姆
+  Rika Nonaka  →  牧野留姫
+  Rina Shinomiya  →  四之宮莉娜
+  RizeGreymon  →  躍升暴龍獸
+  Rock  →  礦石型
+  Rock Dragon  →  岩龍型
+  Rosemon  →  薔薇獸
+  Royal Base  →  皇家基地
+  Royal Knight  →  皇家騎士
+  Ruli Tsukiyono  →  月夜野瑠璃
+  Ryo Akiyama  →  秋山遼
+  Ryoma Mogami  →  最上龍馬
+  Ryudamon  →  龍蛇獸
+  Ryutaro William  →  龍太郎·威廉姆斯
+  Ryutaro Williams  →  龍太郎·威廉姆斯
+  Sagomon  →  沙悟獸
+  Sakuyamon  →  咲耶獸
+  Salamon  →  小狗獸
+  Saneiketsu  →  三英傑
+  Sangomon  →  珊瑚獸
+  Sanmyojin  →  三明神
+  Sanzomon  →  三藏獸
+  Satsuki Tamahime  →  玉姬紗月
+  saur  →  龍
+  SaviorHuckmon  →  救星哈克獸
+  Sea Animal  →  水棲哺乳類型
+  Sea Beast  →  海獸型
+  Seadramon  →  海龍獸
+  Seasarmon  →  風獅獸
+  SEEKERS  →  SEEKERS
+  Sephirothmon  →  十數獸
+  Seraph  →  熾天使型
+  Seven Code  →  七代碼
+  Seven Great Demon Lord  →  七大魔王
+  Seven Great Demon Lords  →  七大魔王
+  Shakamon  →  釋迦獸
+  Shakkoumon  →  土偶獸
+  Shaman  →  神人型
+  Shambala  →  香巴拉
+  Shellmon  →  貝売獸
+  ShineGreymon  →  閃光暴龍獸
+  Shoemon  →  鞋鞋獸
+  ShoeShoemon  →  靴靴獸
+  ShootingStarmon  →  流星獸
+  Shoto Kazama  →  風真照人
+  Shoutmon  →  高吼獸
+  Shoutmon EX6  →  高吼獸EX6
+  Shoutmon X5  →  高吼獸X5
+  Shoutmon X7: Superior Mode  →  高吼獸X7：卓越形態
+  Shu-Chong Wong  →  李小春
+  Shuu Yulin  →  徐月鈴
+  Silphymon  →  西爾芙獸
+  Siriusmon  →  天狼星獸
+  Sistermon  →  修女獸
+  Sistermon Blanc  →  修女獸白
+  Sistermon Blanc (Awakened)  →  修女獸白（覺醒）
+  Sistermon Ciel  →  修女獸天藍
+  Sistermon Ciel (Awakened)  →  修女獸天藍（覺醒）
+  Sistermon Noir  →  修女獸黑
+  SkullBaluchimon  →  骷髏巨犀獸
+  SkullKnightmon  →  骷髏騎士獸
+  Sky Dragon  →  天龍型
+  Slayerdramon  →  斬龍獸
+  Snatchmon  →  搶奪獸
+  SoC  →  SoC
+  Social  →  社交
+  Sora Takenouchi  →  武之內空
+  Sovereign  →  四聖獸
+  Sparrowmon  →  麻雀獸
+  Starmon  →  星星獸
+  Starmons  →  星星獸S
+  Stingmon  →  飛蟲獸
+  Suijinmon  →  水神獸
+  Sukamon  →  大便獸
+  Sunarizamon  →  沙蜥蜴獸
+  Sunflowmon  →  向日葵獸
+  Susanoomon  →  須佐之男獸
+  Suzune Kazuki  →  輝月涼音
+  SW  →  SW
+  SymbareAngoramon  →  勁霸安哥拉獸
+  System  →  系統
+  T.K. Takaishi  →  高石嶽
+  Tagiru Akashi  →  明石激
+  Tai Kamiya  →  八神太一
+  Taiga  →  大河
+  Taiki Kudo  →  工藤大器
+  Takato Matsuki  →  松田啟人
+  Takuya Kanbara  →  神原拓也
+  Taomon  →  道士獸
+  Tapirmon  →  夢貘獸
+  TB  →  TB
+  Ten Warriors  →  十鬥士
+  Tentei Hachibushu  →  天帝八武眾
+  Terriermon  →  梗犬獸
+  TeslaJellymon  →  特斯拉潔莉獸
+  This digimon attacks at start of main phase  →  我方的主要階段開始時，用此數碼寶貝進行攻擊
+  Thomas H. Norstein  →  托馬·H·諾爾修坦
+  Three Great Angels  →  三大天使
+  Three Musketeer  →  三槍手
+  Three Musketeers  →  三槍手
+  Throne  →  座天使型
+  Tinkermon  →  汀克獸
+  Titamon  →  泰坦獸
+  Titan  →  泰坦族
+  Togemon  →  仙人掌獸
+  Tommy Himi  →  冰見友樹
+  Tool  →  工具
+  Torajiro Asuka  →  飛鳥虎次郎
+  Transmutation  →  變化
+  Trial of the Four Great Dragons  →  四大龍的試煉
+  Troopmon  →  兵卒獸
+  TS  →  TS
+  Ts  →  TS
+  TS digimon  →  TS數碼寶貝
+  Tuwarmon  →  強者獸
+  Twilight  →  黑軍
+  Tyrannnomon  →  巨龍獸
+  Tyrannomon  →  巨龍獸
+  Uka-no-Mitama  →  宇迦之御魂
+  Ukkomon  →  烏科獸
+  UlforceVeedramon  →  究極V龍獸
+  Umon of Blue Thunder  →  蒼雷之吽獸
+  Unchained  →  安琴恩
+  Undead  →  不死型
+  Unidentified  →  種族不明
+  Vaccine  →  疫苗種
+  VB  →  VB
+  Vee  →  V
+  Veedramon  →  V龍獸
+  Veemon  →  V仔獸
+  Vegetation  →  植物型
+  Vemmon  →  貝姆獸
+  VEMMON  →  貝姆獸
+  VenomMyotismon  →  怨毒吸血魔獸
+  Venusmon  →  維納斯獸
+  Ver.1  →  Ver.1
+  Ver.2  →  Ver.2
+  Ver.3  →  Ver.3
+  Ver.4  →  Ver.4
+  Ver.5  →  Ver.5
+  Violet Inboots  →  薇奧萊特·因卜茲
+  Virtue  →  力天使型
+  Virus  →  病毒種
+  Volée & Zerdrücken  →  突襲&粉碎
+  Vortex Warriors  →  旋風戰士
+  Vulcanusmon  →  武爾坎努斯獸
+  WarGreymon  →  戰鬥暴龍獸
+  WarGrowlmon  →  大古拉獸
+  Warrior  →  戰士型
+  WereGarurumon  →  狼人加魯魯獸
+  WG  →  WG
+  Whamon  →  巨鯨獸
+  When Attacking effects  →  攻擊時效果
+  Wicked God  →  邪神型
+  Wicked god  →  邪神型
+  Wind Guardians  →  風之守衛
+  Wingdramon  →  翼龍獸
+  Winr  →  賽奇遊
+  Witchelny  →  威徹爾尼
+  Wizard  →  魔人型
+  Wizardmon  →  巫師獸
+  Wormmon  →  蟲蟲獸
+  X Antibody  →  X抗體
+  X-Antibody  →  X抗體
+  XAntibody  →  X抗體
+  Xros  →  Xros
+  Xros Heart  →  Xros Heart
+  Yakiimon  →  烤薯獸
+  Yao Qinglan  →  姚青嵐
+  Yellow  →  黃色
+  Yolei Inoue  →  井上京
+  Yoshino Fujieda  →  藤枝淑乃
+  Yuji Musya  →  武者勇治
+  Yukio Oikawa  →  及川悠紀夫
+  Yuu Amano  →  天野悠
+  Yuuki  →  優希
+  Yuuko Kamishiro  →  神代悠子
+  Zaxon  →  Zaxon
+  ZeigGreymon  →  吉克暴龍獸
+  Zenith  →  澤尼斯
+  Zephyrmon  →  和風獸
+  Zoe Orimoto  →  織本泉

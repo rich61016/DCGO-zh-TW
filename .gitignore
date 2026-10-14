@@ -1,0 +1,32 @@
+# 這個儲存庫只放「繁體中文化工具與翻譯」。
+# 遊戲本體、卡圖、含蘋方字型的遊戲檔都不能公開散布(版權/字型授權),一律排除:
+# 預設忽略根目錄所有東西,再逐一列出要公開的檔案。
+/*
+!/.gitignore
+!/README.md
+!/中文化說明.txt
+!/名詞對照表.txt
+!/啟動DCGO（自動更新）.command
+!/_zh_tools/
+
+# _zh_tools 裡不公開的部分
+/_zh_tools/.venv/
+/_zh_tools/pristine/
+/_zh_tools/backup/
+/_zh_tools/downloads/
+/_zh_tools/decks/
+/_zh_tools/*.v1
+/_zh_tools/*.v2
+/_zh_tools/*.1188
+/_zh_tools/zh_state.json
+/_zh_tools/build_report.json
+/_zh_tools/card_db.json
+/_zh_tools/*.log
+/_zh_tools/*.tmp
+/_zh_tools/*.part
+
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+desktop.ini
