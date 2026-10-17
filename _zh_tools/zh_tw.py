@@ -129,6 +129,7 @@ SCENE = {
     'Test\nDraw': '試抽\n5張',
     # 設定
     'Fullscreen': '全螢幕',
+    '日本語': '中文',             # 語言選項:選這個時卡片資料顯示中文(中文寫在卡片資料庫的日文欄位)
     'BGM': '背景音樂',
     'SE': '音效',
     "Suspended cards' rotation direction": '休息狀態卡片的旋轉方向',

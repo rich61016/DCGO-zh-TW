@@ -14,7 +14,8 @@ ORIG_ROOT = os.environ.get("ZH_ORIG", os.path.join(S, "pristine"))  # 官方原�
 DEST = os.path.join(DEST_ROOT, "Game", "DCGO_Data")
 
 LOCALIZED = ["sharedassets0.assets", "resources.assets", "level0", "level1", "sharedassets1.assets",
-             "il2cpp_data/Metadata/global-metadata.dat"]          # 相對 DCGO_Data/
+             "sharedassets2.assets", "il2cpp_data/Metadata/global-metadata.dat"]   # 相對 DCGO_Data/
+CARD_TEXT = os.path.join(S, "cards", "card_text_zh.json")        # zh_cards.py 產生的卡片文字(繁中)
 
 FONT_NAME = "LiberationSans"                          # 內容換成 PingFang TC 的 Font(後備字型的來源)
 FALLBACK_NAME = "LiberationSans SDF - Fallback"       # 動態後備 TMP_FontAsset

@@ -84,10 +84,76 @@ def parse_entity(raw):
     return d
 
 
-def load_cards(data_dir):
-    env = UnityPy.load(os.path.join(data_dir, "sharedassets2.assets"))
+JPN_FIELDS = ("CardName_JPN", "Form_JPN", "Attribute_JPN", "Type_JPN",
+              "EffectDiscription_JPN", "InheritedEffectDiscription_JPN", "SecurityEffectDiscription_JPN")
+
+
+def _pack_s(t):
+    b = t.encode("utf-8")
+    return struct.pack("<i", len(b)) + b + b"\x00" * ((-len(b)) % 4)
+
+
+def _pack_strs(lst):
+    return struct.pack("<i", len(lst)) + b"".join(_pack_s(x) for x in lst)
+
+
+def patch_entity(raw, jpn):
+    """把 CEntity_Base 的日文欄位換成 jpn(欄位名 → 新內容)指定的內容,其餘位元組原樣保留。
+    寫完會重新解析自我檢查:只有指定的日文欄位改變。"""
+    bad = set(jpn) - set(JPN_FIELDS)
+    if bad:
+        raise ValueError(f"只能改日文欄位: {bad}")
+    r = R(raw, 28)
+    out = bytearray()
+    mark = 0
+
+    def emit(new_bytes, start):
+        nonlocal mark
+        out.extend(raw[mark:start])
+        out.extend(new_bytes)
+        mark = r.p
+
+    r.s()                                   # m_Name
+    r.i32()                                 # CardIndex
+    r.ints()                                # cardColors
+    r.i32()                                 # PlayCost
+    n = r.i32()
+    r.p += 12 * n                           # EvoCosts
+    r.i32()                                 # Level
+    st = r.p
+    r.s()
+    if "CardName_JPN" in jpn:
+        emit(_pack_s(jpn["CardName_JPN"]), st)
+    r.s()                                   # CardName_ENG
+    for k in ("Form", "Attribute", "Type"):
+        st = r.p
+        r.strs()
+        if f"{k}_JPN" in jpn:
+            emit(_pack_strs(jpn[f"{k}_JPN"]), st)
+        r.strs()                            # *_ENG
+    r.s()                                   # CardSpriteName
+    r.ints()                                # cardKind
+    for k in ("EffectDiscription", "InheritedEffectDiscription", "SecurityEffectDiscription"):
+        st = r.p
+        r.s()
+        if f"{k}_JPN" in jpn:
+            emit(_pack_s(jpn[f"{k}_JPN"]), st)
+        r.s()                               # *_ENG
+    out.extend(raw[mark:])
+    new = bytes(out)
+    a, b = parse_entity(raw), parse_entity(new)
+    for k in a:
+        want = list(jpn[k]) if k in jpn and isinstance(a[k], list) else jpn.get(k, a[k])
+        if b[k] != want:
+            raise ValueError(f"改寫後欄位 {k} 不符")
+    return new
+
+
+def load_cards(data_dir, sa2_path=None, ggm_path=None):
+    """sa2_path / ggm_path 可另外指定(例如讀 pristine/ 的官方原檔)。"""
+    env = UnityPy.load(sa2_path or os.path.join(data_dir, "sharedassets2.assets"))
     f = list(env.files.values())[0]
-    gm = UnityPy.load(os.path.join(data_dir, "globalgamemanagers.assets"))
+    gm = UnityPy.load(ggm_path or os.path.join(data_dir, "globalgamemanagers.assets"))
     scripts = {pid: o.read().m_ClassName for pid, o in list(gm.files.values())[0].objects.items() if o.type.name == "MonoScript"}
     cards, bad = [], []
     for pid, o in f.objects.items():

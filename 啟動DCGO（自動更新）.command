@@ -5,11 +5,18 @@ cd "$(dirname "$0")/_zh_tools" || exit 1
 
 if [ ! -x ".venv/bin/python" ]; then
   echo "第一次使用:建立中文化工具需要的 Python 環境(會從 pypi.org 下載約 30 MB)…"
-  /usr/bin/python3 -m venv .venv && ./.venv/bin/python -m pip install -q "UnityPy==1.25.4" || {
+  /usr/bin/python3 -m venv .venv && ./.venv/bin/python -m pip install -q "UnityPy==1.25.4" "opencc-python-reimplemented==0.1.7" || {
     echo "建立 Python 環境失敗,請把上面的訊息告訴 Claude。"
     read -n 1 -s -r -p "按任意鍵關閉…"
     exit 1
   }
+fi
+
+# 卡片文字(官方簡中 → 繁中)需要簡繁轉換套件 OpenCC;舊的環境沒有就補裝
+if ! ./.venv/bin/python -c "import opencc" 2>/dev/null; then
+  echo "安裝簡繁轉換套件 OpenCC(約 1 MB)…"
+  ./.venv/bin/python -m pip install -q --disable-pip-version-check "opencc-python-reimplemented==0.1.7" ||
+    echo "安裝 OpenCC 失敗,卡片文字這次維持原文(其他功能不受影響)。"
 fi
 
 ./.venv/bin/python zh_update.py --launch

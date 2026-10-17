@@ -24,17 +24,25 @@ if not defined PYEXE goto nopython
 echo Python: %PYEXE%
 "%PYEXE%" -m venv "%VENV%"
 if errorlevel 1 goto fail
-"%VPY%" -m pip install -q --disable-pip-version-check "UnityPy==1.25.4"
+"%VPY%" -m pip install -q --disable-pip-version-check "UnityPy==1.25.4" "opencc-python-reimplemented==0.1.7"
 if errorlevel 1 goto piperror
 goto run
 
 :checkvenv
 rem the environment must be a supported Python version and have UnityPy installed
 "%VPY%" -c "import sys, UnityPy; sys.exit(0 if (3, 9) <= sys.version_info[:2] < (3, 15) else 1)" >nul 2>nul
-if not errorlevel 1 goto run
+if not errorlevel 1 goto checkcc
 type "%MSG%\venv_broken.txt"
 rmdir /s /q "%VENV%"
 goto create
+
+:checkcc
+rem card text (Simplified -> Traditional Chinese) needs OpenCC; add it to older environments
+rem (if this fails, only the card text step is skipped)
+"%VPY%" -c "import opencc" >nul 2>nul
+if not errorlevel 1 goto run
+"%VPY%" -m pip install -q --disable-pip-version-check "opencc-python-reimplemented==0.1.7"
+goto run
 
 :run
 "%VPY%" "%TOOLS%\zh_update.py" --launch

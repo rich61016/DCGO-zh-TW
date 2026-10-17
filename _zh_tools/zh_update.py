@@ -4,10 +4,11 @@
 做的事(依序):
   1. 向官方更新伺服器(與官方啟動器相同:https://dcgo.online/PATCH)查詢最新版本與檔案清單。
   2. 逐一比對本機檔案的 SHA-1;有變動的檔案才下載(下載後驗證大小與雜湊)。
-     中文化會改動的 6 個檔案,比對的是 _zh_tools/pristine/ 裡保存的「官方原檔」。
+     中文化會改動的 7 個檔案,比對的是 _zh_tools/pristine/ 裡保存的「官方原檔」。
   3. 套用:一般檔案直接替換(舊檔先備份到 _zh_tools/backup/);中文化相關的官方原檔放進 pristine/。
-  4. 重新套用中文化(build_zh.py),再用 verify_build.py 獨立驗證;驗證失敗就改放官方原檔(英文但可正常遊玩)。
-  5. (--launch)啟動遊戲:macOS 用 Cyder;Windows 直接執行 Game\\DCGO.exe。
+  4. 卡片中文化(zh_cards.py):依官方簡中卡表把日文/英文卡圖換成中文,並產生卡片文字(繁中)。
+  5. 重新套用中文化(build_zh.py),再用 verify_build.py 獨立驗證;驗證失敗就改放官方原檔(英文但可正常遊玩)。
+  6. (--launch)啟動遊戲:macOS 用 Cyder;Windows 直接執行 Game\\DCGO.exe。
 
 用法:
   python zh_update.py              檢查並更新到最新版,然後重新套用中文化
@@ -47,6 +48,7 @@ LOCALIZED = [
     "DCGO_Data/level0",
     "DCGO_Data/level1",
     "DCGO_Data/sharedassets1.assets",
+    "DCGO_Data/sharedassets2.assets",                   # 卡片資料庫(卡名、效果文字寫進日文欄位)
     "DCGO_Data/il2cpp_data/Metadata/global-metadata.dat",
 ]
 
@@ -157,6 +159,22 @@ def game_running():
         return [l for l in out.splitlines() if l.lower().startswith('"dcgo.exe"')]
     r = subprocess.run(["pgrep", "-f", os.path.join(GAME, "DCGO.exe")], capture_output=True, text=True)
     return [p for p in r.stdout.split() if p.strip()]
+
+
+def seed_pristine(st):
+    """pristine/ 缺少某個官方原檔時(例如工具新增了要中文化的檔案),
+    若遊戲資料夾裡的檔案與目前版本的官方雜湊相同,直接複製過去,不必重新下載。"""
+    files = st.get("files") or {}
+    for rel in LOCALIZED:
+        dst = P(PRISTINE, rel)
+        src = P(GAME, rel)
+        if os.path.exists(dst) or rel not in files or not os.path.exists(src):
+            continue
+        if sha1b64(src) == files[rel]:
+            os.makedirs(os.path.dirname(dst), exist_ok=True)
+            tmp = dst + ".tmp-zh"
+            shutil.copyfile(src, tmp)
+            os.replace(tmp, dst)
 
 
 def latest_version():
@@ -280,6 +298,31 @@ def sync_emergency_original():
         os.replace(tmp, dst)
 
 
+CARD_TEXT = os.path.join(TOOLS, "cards", "card_text_zh.json")
+
+
+def card_text_hash():
+    try:
+        with open(CARD_TEXT, "rb") as f:
+            return hashlib.sha1(f.read()).hexdigest()
+    except OSError:
+        return None
+
+
+def cards_step(st):
+    """官方簡中卡圖與卡片文字(zh_cards.py)。回傳卡片文字是否有變動(需要重建中文化)。
+    這一步出任何問題都不影響更新與啟動。"""
+    say("\n=== 卡片中文化(官方簡中卡表) ===")
+    try:
+        sys.path.insert(0, TOOLS)
+        import zh_cards
+        zh_cards.run()
+    except Exception as ex:
+        say(f"卡片中文化這次略過({ex})")
+    h = card_text_hash()
+    return h is not None and h != st.get("card_text_hash")
+
+
 def localize():
     """重建中文化並獨立驗證。成功回 True。"""
     env = dict(os.environ, ZH_ORIG=PRISTINE, ZH_DEST=ROOT)
@@ -358,10 +401,14 @@ def main():
         if game_running():
             say("✗ 遊戲正在執行,請先關閉遊戲再重新套用中文化。")
             return 2
+        seed_pristine(st)
+        h = card_text_hash()
         ok = localize()
         if not ok:
             install_pristine_into_game()
             say("已改放官方原檔(英文版),遊戲仍可正常遊玩。請把上面的訊息告訴 Claude。")
+        else:
+            st["card_text_hash"] = h
         st["localized_ok"] = ok
         st["localized_at"] = datetime.datetime.now().isoformat(timespec="seconds")
         save_state(st)
@@ -381,14 +428,21 @@ def main():
     say(f"目前版本:{cur or '未知'}    伺服器最新版本:{target}")
     if "--check" in args:
         return 0
+    seed_pristine(st)
     bd, need = plan_sync(target)
     pristine_ok = all(os.path.exists(P(PRISTINE, rel)) for rel in LOCALIZED)
-    if not need and cur == target and st.get("localized_ok") and pristine_ok:
-        say("已經是最新版本,不需要更新。")
-        if "--launch" in args:
-            launch()
-        return 0
-    if game_running():
+    up_to_date = not need and cur == target and st.get("localized_ok") and pristine_ok
+    if up_to_date:
+        say("遊戲已經是最新版本。")
+        # 官方簡中卡表可能有新卡:更新卡圖;卡片文字有變動才需要重建中文化
+        if not cards_step(st):
+            if "--launch" in args:
+                launch()
+            return 0
+        if game_running():
+            say("卡片文字有更新,遊戲正在執行中,下次啟動時會套用。")
+            return 0
+    elif game_running():
         say("✗ 遊戲正在執行。請先關閉遊戲,再執行更新。")
         return 2
     old_meta = None
@@ -407,11 +461,16 @@ def main():
     sync_emergency_original()
     st["updated_at"] = datetime.datetime.now().isoformat(timespec="seconds")
     save_state(st)
+    if not up_to_date:
+        cards_step(st)          # 新版本的官方檔已就緒:補中文卡圖、產生卡片文字(下面重建時套用)
     # 官方檔案已就緒,接著重建中文化
+    h = card_text_hash()
     ok = localize()
     if not ok:
         install_pristine_into_game()
         say("\n已改放官方原檔(英文版),遊戲仍可正常遊玩。中文化需要調整,請把上面的訊息告訴 Claude。")
+    else:
+        st["card_text_hash"] = h
     st["localized_ok"] = ok
     st["localized_at"] = datetime.datetime.now().isoformat(timespec="seconds")
     save_state(st)

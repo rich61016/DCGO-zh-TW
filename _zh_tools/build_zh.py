@@ -10,6 +10,7 @@
 import collections
 import json
 import os
+import re
 import struct
 import sys
 
@@ -216,6 +217,89 @@ def special_resources(f, changed, externals):
 
 
 # ----------------------------------------------------------------------------
+# 卡片資料庫:卡名、特徵、效果文字寫進日文欄位(遊戲規則只讀英文欄位)
+# ----------------------------------------------------------------------------
+DIGIBURST_JPN = re.compile("デジバースト[0-9]")        # DataBase.DigiBurstJpnRegex
+DIGIBURST_ENG = re.compile("Digi-Burst [0-9]")         # DataBase.DigiBurstEngRegex
+EFFECT_FIELDS = (("EffectDiscription", "effect"), ("InheritedEffectDiscription", "inherited"),
+                 ("SecurityEffectDiscription", "security"))
+
+
+def has_digiburst(jpn_effect, eng_effect):
+    """CardSource.HasDigiBurst 唯一讀日文欄位的規則判斷:日文欄位比對日文樣式,之後一定再比對英文欄位。"""
+    return bool(jpn_effect and DIGIBURST_JPN.search(jpn_effect)) or bool(eng_effect and DIGIBURST_ENG.search(eng_effect))
+
+
+def card_jpn(c, text):
+    """一張卡的日文欄位要寫成什麼。官方簡中有資料就用繁中;沒有就保留日文;日文也沒有就用英文(原本是空白)。"""
+    rec = text["cards"].get(c["CardID"])
+    traits = text.get("traits", {})
+    j = {"CardName_JPN": (rec or {}).get("name") or c["CardName_JPN"] or c["CardName_ENG"]}
+    for fld, key in (("Form", "form"), ("Attribute", "attribute"), ("Type", "type")):
+        eng, jp = c[f"{fld}_ENG"], c[f"{fld}_JPN"]
+        own = (rec or {}).get(key) or []
+        if own and len(own) == len(eng):
+            j[f"{fld}_JPN"] = list(own)
+        else:
+            # 詳細資料面板以英文欄位的數量為準逐項讀日文欄位,長度必須相同(原版缺日文資料時會在這裡出錯)
+            j[f"{fld}_JPN"] = [traits.get(key, {}).get(e) or (jp[i] if i < len(jp) and jp[i] else e)
+                               for i, e in enumerate(eng)]
+    for fld, key in EFFECT_FIELDS:
+        jf, ef = f"{fld}_JPN", f"{fld}_ENG"
+        zh = (rec or {}).get(key) or ""
+        if zh:
+            j[jf] = zh
+        elif rec and not c[ef].strip():
+            j[jf] = ""
+        else:
+            j[jf] = c[jf] or c[ef]
+    if has_digiburst(j["EffectDiscription_JPN"], c["EffectDiscription_ENG"]) != \
+            has_digiburst(c["EffectDiscription_JPN"], c["EffectDiscription_ENG"]):
+        j["EffectDiscription_JPN"] = c["EffectDiscription_JPN"]          # 會改變規則判斷:維持原文
+        log("sharedassets2.assets", "效果文字會影響數碼爆發判斷,維持原文")
+    return j
+
+
+def build_card_db(scripts):
+    import carddb
+    fname = "sharedassets2.assets"
+    path = A.orig(fname)
+    orig_bytes = open(path, "rb").read()
+    try:
+        with open(A.CARD_TEXT, encoding="utf-8") as fh:
+            text = json.load(fh)
+    except FileNotFoundError:
+        print("  [資訊] 沒有卡片文字資料(cards/card_text_zh.json),卡片資料庫維持原文。")
+        log(fname, "沒有卡片文字資料,維持原文")
+        return orig_bytes, orig_bytes, {}
+    f = A.load_file(path)
+    changed = {}
+    for pid, o in f.objects.items():
+        if o.type.name != "MonoBehaviour":
+            continue
+        raw = o.get_raw_data()
+        _, spid = struct.unpack_from("<iq", raw, 16)
+        if scripts.get(spid) != "CEntity_Base":
+            continue
+        c = carddb.parse_entity(raw)
+        j = card_jpn(c, text)
+        diff = {k: v for k, v in j.items() if v != c[k]}
+        log(fname, "卡片(全部)")
+        if c["CardID"] in text["cards"]:
+            log(fname, "卡片:官方簡中轉繁中")
+        elif c["CardName_JPN"]:
+            log(fname, "卡片:官方簡中沒有,保留日文")
+        else:
+            log(fname, "卡片:官方簡中與日文都沒有,改用英文(原本空白)")
+        if diff:
+            changed[pid] = carddb.patch_entity(raw, diff)
+    for pid, new in changed.items():
+        f.objects[pid].set_raw_data(new)
+    out = f.save() if changed else orig_bytes
+    return orig_bytes, out, changed
+
+
+# ----------------------------------------------------------------------------
 # metadata
 # ----------------------------------------------------------------------------
 def build_metadata():
@@ -285,6 +369,9 @@ def main():
         orig, out, changed = build_asset(fname, scripts, **kw)
         print(f"{fname:24s} 改動物件 {len(changed):5d}  {len(orig):>11,} → {len(out):>11,} bytes")
         outputs[fname] = out
+    orig, out, changed = build_card_db(scripts)
+    print(f"{'sharedassets2.assets':24s} 改動物件 {len(changed):5d}  {len(orig):>11,} → {len(out):>11,} bytes(卡片資料庫)")
+    outputs["sharedassets2.assets"] = out
 
     borig, bout, applied, delta, missing = build_metadata()
     print(f"{'global-metadata.dat':24s} 取代字串 {len(applied):5d}  {len(borig):>11,} → {len(bout):>11,} bytes (+{delta})")

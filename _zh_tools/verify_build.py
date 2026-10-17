@@ -8,6 +8,7 @@
   4. 字型:LiberationSans 換成 PingFang TC、動態後備字型設定、TMP 全域後備清單。
   5. metadata:區段連續、字串常值數不變、取代內容正確、其他區段逐位元組相同、譯文可安全當格式字串。
   6. 譯文用到的字元都在 PingFang TC 裡。
+  7. 卡片資料庫:只有日文欄位改變;規則程式讀的英文欄位與數碼爆發判斷不變;詳細資料面板不會因欄位數量出錯。
 """
 import base64
 import collections
@@ -80,9 +81,10 @@ else:
 # ---------------------------------------------------------------- 2. 序列化檔逐物件比對
 print("\n== 2. 序列化檔逐物件比對 ==")
 scripts = A.script_map()
-expect_cls = {"LocalizeTMPro", "TextMeshProUGUI", "Text", "TMP_FontAsset", "TMP_Settings", "Font"}
+expect_cls = {"LocalizeTMPro", "TextMeshProUGUI", "Text", "TMP_FontAsset", "TMP_Settings", "Font", "CEntity_Base"}
 loaded = {}
-for fname in ["sharedassets0.assets", "resources.assets", "level0", "level1", "sharedassets1.assets"]:
+for fname in ["sharedassets0.assets", "resources.assets", "level0", "level1", "sharedassets1.assets",
+              "sharedassets2.assets"]:
     print(f"-- {fname}")
     fo = A.load_file(A.orig(fname))
     fn_ = A.load_file(os.path.join(DEST, fname))
@@ -241,6 +243,72 @@ for v in list(zh_tw.LOC.values()) + list(zh_tw.SCENE.values()) + [zh_all.ALL[k] 
 fcps = T.cmap_codepoints(fdata)
 miss = sorted(c for c in allchars if ord(c) not in fcps)
 ok(not miss, f"譯文共用到 {len(allchars)} 種非 ASCII 字元,全部涵蓋" + (f";缺: {''.join(miss)}" if miss else ""))
+
+# ---------------------------------------------------------------- 7. 卡片資料庫
+print("\n== 7. 卡片資料庫(卡名、特徵、效果文字寫在日文欄位) ==")
+import carddb  # noqa: E402
+
+DB_JP = re.compile("デジバースト[0-9]")     # DataBase.DigiBurstJpnRegex
+DB_EN = re.compile("Digi-Burst [0-9]")      # DataBase.DigiBurstEngRegex
+
+
+def digiburst(c):
+    return bool(c["EffectDiscription_JPN"] and DB_JP.search(c["EffectDiscription_JPN"])) or \
+        bool(c["EffectDiscription_ENG"] and DB_EN.search(c["EffectDiscription_ENG"]))
+
+
+try:
+    card_text = json.load(open(A.CARD_TEXT, encoding="utf-8"))
+except FileNotFoundError:
+    card_text = None
+    note("沒有卡片文字資料(cards/card_text_zh.json),卡片資料庫應維持原文")
+fo2, fn2 = loaded["sharedassets2.assets"]
+n_cards, bad_other, bad_len, bad_burst, blank, zh_cnt, mism = 0, [], [], [], [], 0, []
+card_chars = set()
+for pid, o in fo2.objects.items():
+    if o.type.name != "MonoBehaviour":
+        continue
+    r0 = o.get_raw_data()
+    _, spid = struct.unpack_from("<iq", r0, 16)
+    if scripts.get(spid) != "CEntity_Base":
+        continue
+    a = carddb.parse_entity(r0)
+    b = carddb.parse_entity(fn2.objects[pid].get_raw_data())
+    n_cards += 1
+    if any(a[k] != b[k] for k in a if k not in carddb.JPN_FIELDS):
+        bad_other.append(a["CardSpriteName"])
+    if any(len(b[f"{k}_JPN"]) < len(b[f"{k}_ENG"]) for k in ("Form", "Attribute")):
+        bad_len.append(a["CardSpriteName"])
+    if digiburst(a) != digiburst(b):
+        bad_burst.append(a["CardSpriteName"])
+    if b["CardName_ENG"] and not b["CardName_JPN"]:
+        blank.append(a["CardSpriteName"])
+    if card_text is None:
+        if r0 != fn2.objects[pid].get_raw_data():
+            bad_other.append(a["CardSpriteName"] + "(沒有卡片文字資料卻被改動)")
+        continue
+    rec = card_text["cards"].get(b["CardID"])
+    if rec:
+        zh_cnt += 1
+        if rec.get("name") and b["CardName_JPN"] != rec["name"]:
+            mism.append((b["CardSpriteName"], "卡名"))
+        if rec.get("effect") and b["EffectDiscription_JPN"] != rec["effect"] and not digiburst(a):
+            mism.append((b["CardSpriteName"], "效果"))
+    for k in carddb.JPN_FIELDS:
+        if b[k] == a[k]:
+            continue                          # 保留的原文(日文)由遊戲原本的日文字型顯示
+        v = b[k] if isinstance(b[k], list) else [b[k]]
+        for s in v:
+            card_chars |= {ch for ch in s if ord(ch) > 127 and not ch.isspace()}
+ok(n_cards > 1000 and not bad_other, f"{n_cards} 張卡:英文欄位與其他資料(規則程式使用的部分)完全不變"
+   + (f";異常 {bad_other[:3]}" if bad_other else ""))
+ok(not bad_len, "形態/屬性的日文欄位數量不少於英文欄位(詳細資料面板逐項讀取,不會出錯)" + (f";異常 {bad_len[:3]}" if bad_len else ""))
+ok(not bad_burst, "唯一讀日文欄位的規則判斷(數碼爆發)結果與原版相同" + (f";不同 {bad_burst[:3]}" if bad_burst else ""))
+ok(not blank, "沒有空白的卡名" + (f";空白 {blank[:3]}" if blank else ""))
+if card_text is not None:
+    ok(not mism, f"{zh_cnt} 張卡的中文卡名、效果與 card_text_zh.json 一致" + (f";不符 {mism[:3]}" if mism else ""))
+    miss2 = sorted(c for c in card_chars if ord(c) not in fcps and not (0xE000 <= ord(c) <= 0xF8FF))
+    ok(not miss2, f"卡片文字共用到 {len(card_chars)} 種非 ASCII 字元,{want_family} 全部涵蓋" + (f";缺: {''.join(miss2)}" if miss2 else ""))
 
 print(f"\n{'全部通過 ✓' if fail == 0 else f'有 {fail} 項失敗 ✗'}" + (f"(另有 {warn} 項提醒)" if warn else ""))
 sys.exit(1 if fail else 0)
